@@ -1,358 +1,353 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>The Clara T Project - Life Skills Coaching &amp; Clarity Consulting</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'retro-teal': '#0891b2',
-                        'retro-magenta': '#db2777',
-                        'retro-blue': '#3b82f6',
-                        'retro-yellow': '#d97706',
-                        'retro-purple': '#7c3aed',
-                        'retro-pink': '#ec4899',
-                        'retro-orange': '#ea580c',
-                        'retro-lime': '#65a30d',
-                        'retro-cyan': '#0891b2',
-                        'retro-violet': '#7c3aed',
-                        'retro-green': '#10b981'
-                    }
-                }
-            }
-        };
-    </script>
-    <style>
-        /* Smooth scroll & base styles */
-        html { scroll-behavior: smooth; }
-        .text-shadow { text-shadow: 0 2px 10px rgba(0,0,0,.35) }
-        .glass { background: rgba(255,255,255,.08); backdrop-filter: blur(8px); }
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Clara T Project - Life Skills Coaching &amp; Clarity Consulting</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Base (v2) */
+    html { scroll-behavior: smooth; }
+    .text-shadow { text-shadow: 0 2px 10px rgba(0,0,0,.35) }
+    .confetti { position: fixed; inset:0; pointer-events:none; overflow:hidden }
+    .dot { position:absolute; width:6px; height:6px; border-radius:50%; opacity:.9 }
+    .service-card { transition: transform .2s ease, box-shadow .2s ease; }
+    .service-card:hover { box-shadow: 0 12px 28px rgba(0,0,0,.15); }
 
-        /* Fun confetti animation dots */
-        .confetti { position: fixed; inset:0; pointer-events:none; overflow:hidden }
-        .dot { position:absolute; width:6px; height:6px; border-radius:50%; opacity:.9 }
+    /* Hero background accents (from v2) */
+    .hero-bg {
+      background-image: radial-gradient(900px 500px at 10% -10%, rgba(59,130,246,.18), transparent),
+                        radial-gradient(800px 600px at 100% 20%, rgba(236,72,153,.15), transparent),
+                        radial-gradient(600px 500px at 50% 110%, rgba(16,185,129,.16), transparent);
+      position: relative;
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(3px 3px at 20px 30px, rgba(234, 88, 12, 0.5), transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(101, 163, 13, 0.6), transparent),
+        radial-gradient(4px 4px at 90px 40px, rgba(139, 92, 246, 0.6), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(5, 150, 105, 0.4), transparent),
+        radial-gradient(2px 2px at 180px 110px, rgba(2, 132, 199, 0.5), transparent),
+        radial-gradient(2px 2px at 240px 60px, rgba(244, 63, 94, 0.55), transparent);
+      background-repeat: repeat; background-size: 200px 200px; opacity: .25; z-index: 0;
+    }
 
-        /* Hero background accents */
-        .hero-bg {
-            background-image: radial-gradient(900px 500px at 10% -10%, rgba(59,130,246,.18), transparent),
-                              radial-gradient(800px 600px at 100% 20%, rgba(236,72,153,.15), transparent),
-                              radial-gradient(600px 500px at 50% 110%, rgba(16,185,129,.16), transparent);
-            position: relative;
-        }
-        
-        .hero-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                radial-gradient(3px 3px at 20px 30px, rgba(234, 88, 12, 0.5), transparent),
-                radial-gradient(2px 2px at 40px 70px, rgba(101, 163, 13, 0.6), transparent),
-                radial-gradient(4px 4px at 90px 40px, rgba(139, 92, 246, 0.6), transparent),
-                radial-gradient(1px 1px at 130px 80px, rgba(5, 150, 105, 0.4), transparent),
-                radial-gradient(2px 2px at 180px 110px, rgba(2, 132, 199, 0.5), transparent),
-                radial-gradient(2px 2px at 240px 60px, rgba(244, 63, 94, 0.55), transparent);
-            background-repeat: repeat;
-            background-size: 200px 200px;
-            opacity: .25;
-            z-index: 0;
-        }
-
-        /* Form interactions */
-        input[type="checkbox"]:checked + div .font-medium { text-decoration: underline; }
-        
-        /* Simple fade-in */
-        .fade-in { animation: fadeIn .6s ease-out both; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* Tooltip helper */
-        .hint { position: relative; cursor: help; }
-        .hint:hover::after { content: attr(data-tip); position: absolute; left: 0; top: 125%; white-space: nowrap; background: #111827; color: #e5e7eb; font-size: .8rem; padding: .35rem .5rem; border-radius: .5rem; box-shadow: 0 6px 24px rgba(0,0,0,.35) }
-    </style>
+    /* --- v1 hero scoped overrides (only affect #v1-hero) --- */
+    #v1-hero .retro-heading { font-family: 'Arial Black', sans-serif !important; font-weight: 900; letter-spacing: -0.02em; }
+    #v1-hero .gradient-text { background: linear-gradient(135deg, #db2777, #20b2aa, #ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    #v1-hero .retro-shadow { box-shadow: 4px 4px 0px rgba(32, 178, 170, 0.3), 8px 8px 0px rgba(255, 215, 0, 0.2) !important; }
+    #v1-hero .animate-pulse-glow { animation: v1pulse 2s ease-in-out infinite; }
+    @keyframes v1pulse { 0%,100% { box-shadow: 0 0 20px rgba(219, 39, 119, 0.3); } 50% { box-shadow: 0 0 40px rgba(219, 39, 119, 0.6); } }
+  </style>
 </head>
 <body class="bg-slate-950 text-slate-100">
 
-    <!-- Floating confetti layer (disabled by default) -->
-    <div id="confetti" class="confetti hidden"></div>
+  <!-- Confetti layer -->
+  <div id="confetti" class="confetti hidden"></div>
 
-    <!-- Header / Navbar -->
-    <header class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-slate-950/60 bg-slate-950/80 border-b border-slate-800">
-        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-            <a href="#top" class="flex items-center gap-2 group">
-                <span class="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-violet-500 to-emerald-400 text-slate-900 font-black">CT</span>
-                <div class="leading-tight">
-                    <div class="font-bold tracking-tight text-slate-100 group-hover:text-white">The Clara T Project</div>
-                    <div class="text-[12px] text-slate-400">Big sister brain, clear life gains.</div>
-                </div>
-            </a>
-            <nav class="hidden sm:flex items-center gap-4 text-slate-300">
-                <a href="#about" class="hover:text-white">About</a>
-                <a href="#services" class="hover:text-white">Services</a>
-                <a href="#form" class="hover:text-white">Get Started</a>
-            </nav>
-            <a href="#form" class="px-3 py-2 rounded-lg bg-violet-600 hover:bg-violet-500 text-white text-sm shadow">Start now</a>
+  <!-- Header / Navbar (v2) -->
+  <header class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-slate-950/60 bg-slate-950/80 border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-2 group">
+        <span class="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-violet-500 to-emerald-400 text-slate-900 font-black">CT</span>
+        <div class="leading-tight">
+          <div class="font-bold tracking-tight text-slate-100 group-hover:text-white">The Clara T Project</div>
+          <div class="text-[12px] text-slate-400">Big sister brain, clear life gains.</div>
         </div>
-    </header>
+      </a>
+      <nav class="hidden sm:flex items-center gap-4 text-slate-300">
+        <a href="#about" class="hover:text-white">About</a>
+        <a href="#services" class="hover:text-white">Services</a>
+        <a href="#form" class="hover:text-white">Get Started</a>
+      </nav>
+      <a href="#form" class="px-3 py-2 rounded-lg bg-violet-600 hover:bg-violet-500 text-white text-sm shadow">Start now</a>
+    </div>
+  </header>
 
-    <!-- Hero -->
-    <section id="top" class="hero-bg relative overflow-hidden">
-        <div class="absolute inset-0 -z-0">
-            <div class="absolute -top-32 -left-32 w-[400px] h-[400px] bg-violet-600/30 rounded-full blur-3xl"></div>
-            <div class="absolute -bottom-40 -right-20 w-[520px] h-[520px] bg-emerald-500/20 rounded-full blur-3xl"></div>
+  <!-- Hero (v2 structure + v1 style) -->
+  <section id="v1-hero" class="hero-bg relative overflow-hidden">
+    <div class="absolute inset-0 -z-0">
+      <div class="absolute -top-32 -left-32 w-[400px] h-[400px] bg-violet-600/30 rounded-full blur-3xl"></div>
+      <div class="absolute -bottom-40 -right-20 w-[520px] h-[520px] bg-emerald-500/20 rounded-full blur-3xl"></div>
+    </div>
+    <div class="relative z-10 max-w-6xl mx-auto px-4 py-16 sm:py-20 grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h1 class="retro-heading gradient-text text-4xl sm:text-5xl leading-tight">Life Skills Coaching &amp; Clarity Consulting</h1>
+        <p class="mt-4 text-slate-300 text-lg">No fluff. Real tools. I help you turn sticky life stuff into smooth systems—money, home, tech, habits, and headspace.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#form" class="px-4 py-2.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-medium shadow retro-shadow animate-pulse-glow">Tell me what you need</a>
+          <a href="#about" class="px-4 py-2.5 rounded-xl border border-slate-700 hover:border-slate-600 text-slate-200">How I work</a>
         </div>
-        <div class="relative z-10 max-w-6xl mx-auto px-4 py-16 sm:py-20 grid md:grid-cols-2 gap-8 items-center">
-            <div>
-                <h1 class="text-4xl sm:text-5xl font-black leading-tight text-white text-shadow">Life Skills Coaching &amp; Clarity Consulting</h1>
-                <p class="mt-4 text-slate-300 text-lg">No fluff. Real tools. I help you turn sticky life stuff into smooth systems—money, home, tech, habits, and headspace.</p>
-                <div class="mt-6 flex flex-wrap gap-3">
-                    <a href="#form" class="px-4 py-2.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-medium shadow">Tell me what you need</a>
-                    <a href="#about" class="px-4 py-2.5 rounded-xl border border-slate-700 hover:border-slate-600 text-slate-200">How I work</a>
-                </div>
-                <div class="mt-3 text-xs text-slate-400">Free 15-minute audit • Friendly + practical • Action in week one</div>
+        <div class="mt-3 text-xs text-slate-400">Free 15-minute audit • Friendly + practical • Action in week one</div>
+      </div>
+      <div class="relative">
+        <div class="rounded-2xl border border-slate-800/60 bg-slate-900/60 p-4 sm:p-5 shadow-lg">
+          <div class="grid grid-cols-2 gap-3 text-sm">
+            <div class="rounded-xl p-3 bg-slate-800/60">
+              <div class="text-slate-300">Budget Boost</div>
+              <div class="text-2xl font-black text-white">+$350/mo</div>
+              <div class="text-[12px] text-slate-400">avg. client savings</div>
             </div>
-            <div class="relative">
-                <div class="rounded-2xl border border-slate-800/60 bg-slate-900/60 p-4 sm:p-5 shadow-lg">
-                    <div class="grid grid-cols-2 gap-3 text-sm">
-                        <div class="rounded-xl p-3 bg-slate-800/60">
-                            <div class="text-slate-300">Budget Boost</div>
-                            <div class="text-2xl font-black text-white">+$350/mo</div>
-                            <div class="text-[12px] text-slate-400">avg. client savings</div>
-                        </div>
-                        <div class="rounded-xl p-3 bg-slate-800/60">
-                            <div class="text-slate-300">Time back</div>
-                            <div class="text-2xl font-black text-white">4–6 hrs/wk</div>
-                            <div class="text-[12px] text-slate-400">with smarter systems</div>
-                        </div>
-                        <div class="rounded-xl p-3 bg-slate-800/60">
-                            <div class="text-slate-300">Accountability</div>
-                            <div class="text-2xl font-black text-white">100%</div>
-                            <div class="text-[12px] text-slate-400">you won’t do this alone</div>
-                        </div>
-                        <div class="rounded-xl p-3 bg-slate-800/60">
-                            <div class="text-slate-300">Results</div>
-                            <div class="text-2xl font-black text-white">Week 1</div>
-                            <div class="text-[12px] text-slate-400">visible momentum</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-2 text-xs text-slate-500">Estimates shown; results vary based on your goals.</div>
+            <div class="rounded- xl p-3 bg-slate-800/60">
+              <div class="text-slate-300">Time back</div>
+              <div class="text-2xl font-black text-white">4–6 hrs/wk</div>
+              <div class="text-[12px] text-slate-400">with smarter systems</div>
             </div>
-        </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="py-14 sm:py-16 border-t border-slate-800">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="grid md:grid-cols-3 gap-8 items-start">
-                <div class="md:col-span-2">
-                    <h2 class="text-2xl sm:text-3xl font-black text-white">Hi, I’m Desi—your pragmatic hype woman.</h2>
-                    <p class="mt-3 text-slate-300 leading-relaxed">I’m a data-driven problem solver who loves pinching pennies, untangling tech, and building calm systems that actually stick. Clients call me a big sister with spreadsheets—equal parts pep talk and practical plan.</p>
-                    <ul class="mt-4 grid sm:grid-cols-2 gap-3 text-slate-300">
-                        <li class="flex items-start gap-2"><span class="text-emerald-400">◆</span> No-judgment zone—we start from where you are.</li>
-                        <li class="flex items-start gap-2"><span class="text-emerald-400">◆</span> Clear steps, not vague vibes.</li>
-                        <li class="flex items-start gap-2"><span class="text-emerald-400">◆</span> Action you can take this week.</li>
-                        <li class="flex items-start gap-2"><span class="text-emerald-400">◆</span> Systems you’ll actually use.</li>
-                    </ul>
-                </div>
-                <aside class="md:col-span-1 rounded-2xl border border-slate-800 bg-slate-900 p-4">
-                    <div class="font-semibold text-white">Best for</div>
-                    <ul class="mt-2 space-y-1 text-slate-300 text-sm">
-                        <li>Budget tune-ups &amp; savings plans</li>
-                        <li>Home &amp; life systems (clean, clear, calm)</li>
-                        <li>Tech/tools setup &amp; AI prompting</li>
-                        <li>Clarity &amp; confidence boosts</li>
-                    </ul>
-                    <div class="mt-4 text-xs text-slate-400">You’ll get direct help, templates, and focused accountability. No busywork.</div>
-                </aside>
+            <div class="rounded-xl p-3 bg-slate-800/60">
+              <div class="text-slate-300">Accountability</div>
+              <div class="text-2xl font-black text-white">100%</div>
+              <div class="text-[12px] text-slate-400">you won’t do this alone</div>
             </div>
-        </div>
-    </section>
-
-    <!-- Services -->
-    <section id="services" class="py-14 sm:py-16 border-t border-slate-800">
-        <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-2xl sm:text-3xl font-black text-white">Pick your power-ups</h2>
-            <p class="mt-2 text-slate-300">Tell me what you need—we’ll tailor it. Start small or build a bundle.</p>
-
-            <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <label class="flex items-start bg-gray-50/5 rounded-xl p-3 hover:bg-violet-600/10 transition-colors cursor-pointer min-h-[120px]">
-                    <input type="checkbox" name="svc-budget" class="mt-1 w-4 h-4 text-violet-500 rounded border-2 border-slate-600 focus:ring-violet-500 focus:ring-2"/>
-                    <div class="ml-3">
-                        <div class="font-semibold">Budget &amp; Savings</div>
-                        <p class="text-slate-300 text-sm">Budget setup, expense trimming, and smart money moves.</p>
-                    </div>
-                </label>
-
-                <label class="flex items-start bg-gray-50/5 rounded-xl p-3 hover:bg-sky-500/10 transition-colors cursor-pointer min-h-[120px]">
-                    <input type="checkbox" name="svc-tech" class="mt-1 w-4 h-4 text-sky-500 rounded border-2 border-slate-600 focus:ring-sky-500 focus:ring-2"/>
-                    <div class="ml-3">
-                        <div class="font-semibold">Tech, Tools &amp; AI Help</div>
-                        <p class="text-slate-300 text-sm">Troubleshooting, setup, and AI prompt tips.</p>
-                    </div>
-                </label>
-
-                <label class="flex items-start bg-gray-50/5 rounded-xl p-3 hover:bg-emerald-500/10 transition-colors cursor-pointer min-h-[120px]">
-                    <input type="checkbox" name="svc-life" class="mt-1 w-4 h-4 text-emerald-500 rounded border-2 border-slate-600 focus:ring-emerald-500 focus:ring-2"/>
-                    <div class="ml-3">
-                        <div class="font-semibold">Life Skills Help</div>
-                        <p class="text-slate-300 text-sm">Calmer routines, clearer spaces, better habits.</p>
-                    </div>
-                </label>
-
-                <label class="flex items-start bg-gray-50/5 rounded-xl p-3 hover:bg-orange-500/10 transition-colors cursor-pointer min-h-[120px]">
-                    <input type="checkbox" name="svc-cooking" class="mt-1 w-4 h-4 text-orange-500 rounded border-2 border-slate-600 focus:ring-orange-500 focus:ring-2"/>
-                    <div class="ml-3">
-                        <div class="font-semibold">Cooking &amp; Meal Planning</div>
-                        <p class="text-slate-300 text-sm">Grocery strategy, quick wins, flavor-forward meals.</p>
-                    </div>
-                </label>
-
-                <label class="flex items-start bg-gray-50/5 rounded-xl p-3 hover:bg-pink-500/10 transition-colors cursor-pointer min-h-[120px]">
-                    <input type="checkbox" name="svc-dating" class="mt-1 w-4 h-4 text-pink-500 rounded border-2 border-slate-600 focus:ring-pink-500 focus:ring-2"/>
-                    <div class="ml-3">
-                        <div class="font-semibold">Dating Profile Glow-Up</div>
-                        <p class="text-slate-300 text-sm">Photos, prompts, and read-the-room refresh.</p>
-                    </div>
-                </label>
-
-                <label class="flex items-start bg-gray-50/5 rounded-xl p-3 hover:bg-lime-500/10 transition-colors cursor-pointer min-h-[120px]">
-                    <input type="checkbox" name="svc-plants" class="mt-1 w-4 h-4 text-lime-500 rounded border-2 border-slate-600 focus:ring-lime-500 focus:ring-2"/>
-                    <div class="ml-3">
-                        <div class="font-semibold">Plant Care &amp; Garden Help</div>
-                        <p class="text-slate-300 text-sm">Care schedules, propagation, greenhouse planning.</p>
-                    </div>
-                </label>
+            <div class="rounded-xl p-3 bg-slate-800/60">
+              <div class="text-slate-300">Results</div>
+              <div class="text-2xl font-black text-white">Week 1</div>
+              <div class="text-[12px] text-slate-400">visible momentum</div>
             </div>
+          </div>
         </div>
-    </section>
+        <div class="mt-2 text-xs text-slate-500">Estimates shown; results vary based on your goals.</div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Reviews placeholder -->
-    <section class="py-14 sm:py-16 border-t border-slate-800">
-        <div class="max-w-6xl mx-auto px-4 text-center">
-            <div class="text-2xl sm:text-3xl font-black text-white">⭐⭐⭐⭐⭐</div>
-            <p class="mt-2 text-slate-300 max-w-2xl mx-auto">Reviews loading… Your words help shape this project, guide others, and keep me improving.</p>
+  <!-- About -->
+  <section id="about" class="py-14 sm:py-16 border-t border-slate-800">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-8 items-start">
+        <div class="md:col-span-2">
+          <h2 class="text-2xl sm:text-3xl font-black text-white">Hi, I’m Desi—your pragmatic hype woman.</h2>
+          <p class="mt-3 text-slate-300 leading-relaxed">I’m a data-driven problem solver who loves pinching pennies, untangling tech, and building calm systems that actually stick. Clients call me a big sister with spreadsheets—equal parts pep talk and practical plan.</p>
+          <ul class="mt-4 grid sm:grid-cols-2 gap-3 text-slate-300">
+            <li class="flex items-start gap-2"><span class="text-emerald-400">◆</span> No-judgment zone—we start from where you are.</li>
+            <li class="flex items-start gap-2"><span class="text-emerald-400">◆</span> Clear steps, not vague vibes.</li>
+            <li class="flex items-start gap-2"><span class="text-emerald-400">◆</span> Action you can take this week.</li>
+            <li class="flex items-start gap-2"><span class="text-emerald-400">◆</span> Systems you’ll actually use.</li>
+          </ul>
         </div>
-    </section>
+        <aside class="md:col-span-1 rounded-2xl border border-slate-800 bg-slate-900 p-4">
+          <div class="font-semibold text-white">Best for</div>
+          <ul class="mt-2 space-y-1 text-slate-300 text-sm">
+            <li>Budget tune-ups &amp; savings plans</li>
+            <li>Home &amp; life systems (clean, clear, calm)</li>
+            <li>Tech/tools setup &amp; AI prompting</li>
+            <li>Clarity &amp; confidence boosts</li>
+          </ul>
+          <div class="mt-4 text-xs text-slate-400">You’ll get direct help, templates, and focused accountability. No busywork.</div>
+        </aside>
+      </div>
+    </div>
+  </section>
 
-    <!-- Form -->
-    <section id="form" class="py-14 sm:py-16 border-t border-slate-800">
-        <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-2xl sm:text-3xl font-black text-white">Tell me what you need</h2>
-            <p class="mt-2 text-slate-300">Pick a few options below. I’ll reply with a short plan and a simple next step.</p>
+  <!-- Services (display list) -->
+  <section id="services" class="py-14 sm:py-16 border-t border-slate-800">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl font-black text-white">Pick your power-ups</h2>
+      <p class="mt-2 text-slate-300">Tell me what you need—we’ll tailor it. Start small or build a bundle.</p>
 
-            <form class="mt-6 grid md:grid-cols-2 gap-5">
-                <!-- Name / Email -->
-                <div>
-                    <label class="block text-sm text-slate-300">Name</label>
-                    <input type="text" placeholder="Your name" class="mt-1 w-full rounded-xl bg-slate-900 border border-slate-700 px-3 py-2 text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500"/>
-                </div>
-                <div>
-                    <label class="block text-sm text-slate-300">Email</label>
-                    <input type="email" placeholder="you@example.com" class="mt-1 w-full rounded-xl bg-slate-900 border border-slate-700 px-3 py-2 text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500"/>
-                </div>
+      <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <label class="service-card flex items-start bg-gray-50/5 rounded-xl p-3 hover:bg-violet-600/10 transition-colors cursor-pointer min-h-[120px]">
+          <input type="checkbox" class="mt-1 w-4 h-4 text-violet-500 rounded border-2 border-slate-600 focus:ring-violet-500 focus:ring-2"/>
+          <div class="ml-3">
+            <div class="font-semibold">Budget &amp; Savings</div>
+            <p class="text-slate-300 text-sm">Budget setup, expense trimming, and smart money moves.</p>
+          </div>
+        </label>
 
-                <!-- Services checkboxes (compact) -->
-                <div class="md:col-span-2">
-                    <div class="text-sm text-slate-300 mb-2">What do you want help with?</div>
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                        <label class="flex items-start bg-gray-50 rounded-xl p-3 hover:bg-violet-100 transition-colors cursor-pointer min-h-[100px]">
-                            <input class="w-4 h-4 text-violet-600 rounded border-2 border-gray-300 focus:ring-violet-500 focus:ring-2 transition-colors mt-1 mr-3" type="checkbox" name="services" value="Budget &amp; Savings"/>
-                            <div class="flex-1">
-                                <div class="font-medium mb-1 text-lg">Budget &amp; Savings</div>
-                                <p class="text-gray-600 leading-relaxed">Budget setup, expense trimming, and smart money moves.</p>
-                            </div>
-                        </label>
-                        <label class="flex items-start bg-gray-50 rounded-xl p-3 hover:bg-sky-100 transition-colors cursor-pointer min-h-[100px]">
-                            <input class="w-4 h-4 text-sky-600 rounded border-2 border-gray-300 focus:ring-sky-500 focus:ring-2 transition-colors mt-1 mr-3" type="checkbox" name="services" value="Tech, Tools &amp; AI Help"/>
-                            <div class="flex-1">
-                                <div class="font-medium mb-1 text-lg">Tech, Tools &amp; AI Help</div>
-                                <p class="text-gray-600 leading-relaxed">Troubleshooting, setup, and AI prompt tips.</p>
-                            </div>
-                        </label>
-                        <label class="flex items-start bg-gray-50 rounded-xl p-3 hover:bg-emerald-100 transition-colors cursor-pointer min-h-[100px]">
-                            <input class="w-4 h-4 text-emerald-600 rounded border-2 border-gray-300 focus:ring-emerald-500 focus:ring-2 transition-colors mt-1 mr-3" type="checkbox" name="services" value="Life Skills Help"/>
-                            <div class="flex-1">
-                                <div class="font-medium mb-1 text-lg">Life Skills Help</div>
-                                <p class="text-gray-600 leading-relaxed">Calmer routines, clearer spaces, better habits.</p>
-                            </div>
-                        </label>
-                        <label class="flex items-start bg-gray-50 rounded-xl p-3 hover:bg-orange-100 transition-colors cursor-pointer min-h-[100px]">
-                            <input class="w-4 h-4 text-orange-600 rounded border-2 border-gray-300 focus:ring-orange-500 focus:ring-2 transition-colors mt-1 mr-3" type="checkbox" name="services" value="Cooking &amp; Meal Planning"/>
-                            <div class="flex-1">
-                                <div class="font-medium mb-1 text-lg">Cooking &amp; Meal Planning</div>
-                                <p class="text-gray-600 leading-relaxed">Grocery strategy, quick wins, flavor-forward meals.</p>
-                            </div>
-                        </label>
-                        <label class="flex items-start bg-gray-50 rounded-xl p-3 hover:bg-pink-100 transition-colors cursor-pointer min-h-[100px]">
-                            <input class="w-4 h-4 text-pink-600 rounded border-2 border-gray-300 focus:ring-pink-500 focus:ring-2 transition-colors mt-1 mr-3" type="checkbox" name="services" value="Dating Profile Glow-Up"/>
-                            <div class="flex-1">
-                                <div class="font-medium mb-1 text-lg">Dating Profile Glow-Up</div>
-                                <p class="text-gray-600 leading-relaxed">Photos, prompts, and read-the-room refresh.</p>
-                            </div>
-                        </label>
-                        <label class="flex items-start bg-gray-50 rounded-xl p-3 hover:bg-lime-100 transition-colors cursor-pointer min-h-[100px]">
-                            <input class="w-4 h-4 text-lime-600 rounded border-2 border-gray-300 focus:ring-lime-500 focus:ring-2 transition-colors mt-1 mr-3" type="checkbox" name="services" value="Plant Care &amp; Garden Help"/>
-                            <div class="flex-1">
-                                <div class="font-medium mb-1 text-lg">Plant Care &amp; Garden Help</div>
-                                <p class="text-gray-600 leading-relaxed">Care schedules, propagation, greenhouse planning.</p>
-                            </div>
-                        </label>
-                    </div>
-                </div>
+        <label class="service-card flex items-start bg-gray-50/5 rounded-xl p-3 hover:bg-sky-500/10 transition-colors cursor-pointer min-h-[120px]">
+          <input type="checkbox" class="mt-1 w-4 h-4 text-sky-500 rounded border-2 border-slate-600 focus:ring-sky-500 focus:ring-2"/>
+          <div class="ml-3">
+            <div class="font-semibold">Tech, Tools &amp; AI Help</div>
+            <p class="text-slate-300 text-sm">Troubleshooting, setup, and AI prompt tips.</p>
+          </div>
+        </label>
 
-                <!-- Message -->
-                <div class="md:col-span-2">
-                    <label class="block text-sm text-slate-300">What’s going on? (Quick version)</label>
-                    <textarea rows="5" placeholder="Give me a two-sentence snapshot—what’s working, what isn’t, and what would feel better." class="mt-1 w-full rounded-xl bg-slate-900 border border-slate-700 px-3 py-2 text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500"></textarea>
-                </div>
+        <label class="service-card flex items-start bg-gray-50/5 rounded-xl p-3 hover:bg-emerald-500/10 transition-colors cursor-pointer min-h-[120px]">
+          <input type="checkbox" class="mt-1 w-4 h-4 text-emerald-500 rounded border-2 border-slate-600 focus:ring-emerald-500 focus:ring-2"/>
+          <div class="ml-3">
+            <div class="font-semibold">Life Skills Help</div>
+            <p class="text-slate-300 text-sm">Calmer routines, clearer spaces, better habits.</p>
+          </div>
+        </label>
 
-                <!-- Submit -->
-                <div class="md:col-span-2 flex items-center gap-3">
-                    <button type="button" id="submitBtn" class="px-4 py-2.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-medium shadow">Send it</button>
-                    <span class="text-sm text-slate-400">I’ll reply with a mini plan + options.</span>
-                </div>
-            </form>
+        <label class="service-card flex items-start bg-gray-50/5 rounded-xl p-3 hover:bg-orange-500/10 transition-colors cursor-pointer min-h-[120px]">
+          <input type="checkbox" class="mt-1 w-4 h-4 text-orange-500 rounded border-2 border-slate-600 focus:ring-orange-500 focus:ring-2"/>
+          <div class="ml-3">
+            <div class="font-semibold">Cooking &amp; Meal Planning</div>
+            <p class="text-slate-300 text-sm">Grocery strategy, quick wins, flavor-forward meals.</p>
+          </div>
+        </label>
+
+        <label class="service-card flex items-start bg-gray-50/5 rounded-xl p-3 hover:bg-pink-500/10 transition-colors cursor-pointer min-h-[120px]">
+          <input type="checkbox" class="mt-1 w-4 h-4 text-pink-500 rounded border-2 border-slate-600 focus:ring-pink-500 focus:ring-2"/>
+          <div class="ml-3">
+            <div class="font-semibold">Dating Profile Glow-Up</div>
+            <p class="text-slate-300 text-sm">Photos, prompts, and read-the-room refresh.</p>
+          </div>
+        </label>
+
+        <label class="service-card flex items-start bg-gray-50/5 rounded-xl p-3 hover:bg-lime-500/10 transition-colors cursor-pointer min-h-[120px]">
+          <input type="checkbox" class="mt-1 w-4 h-4 text-lime-500 rounded border-2 border-slate-600 focus:ring-lime-500 focus:ring-2"/>
+          <div class="ml-3">
+            <div class="font-semibold">Plant Care &amp; Garden Help</div>
+            <p class="text-slate-300 text-sm">Care schedules, propagation, greenhouse planning.</p>
+          </div>
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="py-14 sm:py-16 border-t border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <div class="text-2xl sm:text-3xl font-black text-white">⭐⭐⭐⭐⭐</div>
+      <p class="mt-2 text-slate-300 max-w-2xl mx-auto">Reviews loading… Your words help shape this project, guide others, and keep me improving.</p>
+    </div>
+  </section>
+
+  <!-- Form -->
+  <section id="form" class="py-14 sm:py-16 border-t border-slate-800">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl font-black text-white">Tell me what you need</h2>
+      <p class="mt-2 text-slate-300">Pick a few options below. I’ll reply with a short plan and a simple next step.</p>
+
+      <form id="interestForm" class="mt-6 grid md:grid-cols-2 gap-5"
+            method="POST"
+            action="https://script.google.com/macros/s/PASTE-YOUR-ID/exec"
+            target="hidden_iframe">
+        <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+        <!-- Name / Email -->
+        <div>
+          <label class="block text-sm text-slate-300">Name</label>
+          <input name="name" type="text" placeholder="Your name" class="mt-1 w-full rounded-xl bg-slate-900 border border-slate-700 px-3 py-2 text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500"/>
         </div>
-    </section>
+        <div>
+          <label class="block text-sm text-slate-300">Email</label>
+          <input name="email" type="email" placeholder="you@example.com" class="mt-1 w-full rounded-xl bg-slate-900 border border-slate-700 px-3 py-2 text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500"/>
+        </div>
 
-    <footer class="border-t border-slate-800 py-8 text-center text-slate-400 text-sm">
-        <div class="max-w-6xl mx-auto px-4">© <span id="y"></span> The Clara T Project — Big sister brain, clear life gains.</div>
-    </footer>
+        <!-- Services (named 'svc'; packed into hidden 'services' field on submit) -->
+        <div class="md:col-span-2">
+          <div class="text-sm text-slate-300 mb-2">What do you want help with?</div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            <label class="service-card flex items-start bg-gray-50 rounded-xl p-3 hover:bg-violet-100 transition-colors cursor-pointer min-h-[100px]">
+              <input class="w-4 h-4 text-violet-600 rounded border-2 border-gray-300 focus:ring-violet-500 focus:ring-2 transition-colors mt-1 mr-3" type="checkbox" name="svc" value="Budget &amp; Savings"/>
+              <div class="flex-1">
+                <div class="font-medium mb-1 text-lg">Budget &amp; Savings</div>
+                <p class="text-gray-600 leading-relaxed">Budget setup, expense trimming, and smart money moves.</p>
+              </div>
+            </label>
+            <label class="service-card flex items-start bg-gray-50 rounded-xl p-3 hover:bg-sky-100 transition-colors cursor-pointer min-h-[100px]">
+              <input class="w-4 h-4 text-sky-600 rounded border-2 border-gray-300 focus:ring-sky-500 focus:ring-2 transition-colors mt-1 mr-3" type="checkbox" name="svc" value="Tech, Tools &amp; AI Help"/>
+              <div class="flex-1">
+                <div class="font-medium mb-1 text-lg">Tech, Tools &amp; AI Help</div>
+                <p class="text-gray-600 leading-relaxed">Troubleshooting, setup, and AI prompt tips.</p>
+              </div>
+            </label>
+            <label class="service-card flex items-start bg-gray-50 rounded-xl p-3 hover:bg-emerald-100 transition-colors cursor-pointer min-h-[100px]">
+              <input class="w-4 h-4 text-emerald-600 rounded border-2 border-gray-300 focus:ring-emerald-500 focus:ring-2 transition-colors mt-1 mr-3" type="checkbox" name="svc" value="Life Skills Help"/>
+              <div class="flex-1">
+                <div class="font-medium mb-1 text-lg">Life Skills Help</div>
+                <p class="text-gray-600 leading-relaxed">Calmer routines, clearer spaces, better habits.</p>
+              </div>
+            </label>
+            <label class="service-card flex items-start bg-gray-50 rounded-xl p-3 hover:bg-orange-100 transition-colors cursor-pointer min-h-[100px]">
+              <input class="w-4 h-4 text-orange-600 rounded border-2 border-gray-300 focus:ring-orange-500 focus:ring-2 transition-colors mt-1 mr-3" type="checkbox" name="svc" value="Cooking &amp; Meal Planning"/>
+              <div class="flex-1">
+                <div class="font-medium mb-1 text-lg">Cooking &amp; Meal Planning</div>
+                <p class="text-gray-600 leading-relaxed">Grocery strategy, quick wins, flavor-forward meals.</p>
+              </div>
+            </label>
+            <label class="service-card flex items-start bg-gray-50 rounded-xl p-3 hover:bg-pink-100 transition-colors cursor-pointer min-h-[100px]">
+              <input class="w-4 h-4 text-pink-600 rounded border-2 border-gray-300 focus:ring-pink-500 focus:ring-2 transition-colors mt-1 mr-3" type="checkbox" name="svc" value="Dating Profile Glow-Up"/>
+              <div class="flex-1">
+                <div class="font-medium mb-1 text-lg">Dating Profile Glow-Up</div>
+                <p class="text-gray-600 leading-relaxed">Photos, prompts, and read-the-room refresh.</p>
+              </div>
+            </label>
+            <label class="service-card flex items-start bg-gray-50 rounded-xl p-3 hover:bg-lime-100 transition-colors cursor-pointer min-h-[100px]">
+              <input class="w-4 h-4 text-lime-600 rounded border-2 border-gray-300 focus:ring-lime-500 focus:ring-2 transition-colors mt-1 mr-3" type="checkbox" name="svc" value="Plant Care &amp; Garden Help"/>
+              <div class="flex-1">
+                <div class="font-medium mb-1 text-lg">Plant Care &amp; Garden Help</div>
+                <p class="text-gray-600 leading-relaxed">Care schedules, propagation, greenhouse planning.</p>
+              </div>
+            </label>
+          </div>
+          <!-- hidden field to send combined services string under the exact key the Sheet expects -->
+          <input type="hidden" name="services" id="servicesCombined" value=""/>
+        </div>
 
-    <script>
-        // Confetti (fun extra when hitting Submit)
-        const confettiRoot = document.getElementById('confetti');
-        const submitBtn = document.getElementById('submitBtn');
-        const y = document.getElementById('y');
-        if (y) y.textContent = new Date().getFullYear();
-        function random(min, max){ return Math.random() * (max-min) + min }
-        function fireConfetti(){
-            confettiRoot.classList.remove('hidden');
-            const colors = ['#a78bfa','#22d3ee','#34d399','#fb7185','#f59e0b'];
-            for(let i=0;i<100;i++){
-                const dot = document.createElement('div');
-                dot.className = 'dot';
-                dot.style.left = random(0, window.innerWidth)+'px';
-                dot.style.top = random(0, window.innerHeight)+'px';
-                dot.style.background = colors[Math.floor(Math.random()*colors.length)];
-                confettiRoot.appendChild(dot);
-                dot.animate([
-                    { transform: 'translateY(0) scale(1)', opacity: 1 },
-                    { transform: `translate(${random(-40,40)}px, ${random(60,180)}px) scale(0.2)`, opacity: 0 }
-                ], { duration: random(800, 1600), easing: 'cubic-bezier(.2,.65,.3,1)' }).onfinish = ()=> dot.remove();
-            }
-            setTimeout(()=> confettiRoot.classList.add('hidden'), 1200);
-        }
-        if (submitBtn) submitBtn.addEventListener('click', fireConfetti);
-    </script>
+        <!-- Message -->
+        <div class="md:col-span-2">
+          <label class="block text-sm text-slate-300">What’s going on? (Quick version)</label>
+          <textarea name="message" rows="5" placeholder="Give me a two-sentence snapshot—what’s working, what isn’t, and what would feel better." class="mt-1 w-full rounded-xl bg-slate-900 border border-slate-700 px-3 py-2 text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500"></textarea>
+        </div>
 
-    <!-- Safe window.name workaround for sandboxed iframe previews (no-op here) -->
-    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document; b.open(); b.write('<!DOCTYPE html><title>_</title>'); b.close()} if(!window.frameElement){var a=document.createElement('iframe');a.style.display='none';document.body.appendChild(a);document.readyState!=='loading'?c():document.addEventListener('DOMContentLoaded',c);}})();</script>
+        <!-- Submit -->
+        <div class="md:col-span-2 flex items-center gap-3">
+          <button type="submit" id="submitBtn" class="px-4 py-2.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-medium shadow">Send it</button>
+          <span class="text-sm text-slate-400">I’ll reply with a mini plan + options.</span>
+          <span id="thanks" class="text-sm text-emerald-400 hidden">Thanks! Got it.</span>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="border-t border-slate-800 py-8 text-center text-slate-400 text-sm">
+    <div class="max-w-6xl mx-auto px-4">© <span id="y"></span> The Clara T Project — Big sister brain, clear life gains.</div>
+  </footer>
+
+  <script>
+    // Year
+    const y = document.getElementById('y'); if (y) y.textContent = new Date().getFullYear();
+
+    // Randomize hover direction on all service cards (both sections)
+    function randomVector(){
+      const angle = Math.random() * Math.PI * 2;
+      const dist = 6 + Math.random() * 8; // 6–14px
+      return { x: Math.cos(angle)*dist, y: Math.sin(angle)*dist };
+    }
+    document.querySelectorAll('.service-card').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        const v = randomVector();
+        card.style.transform = `translate(${v.x.toFixed(1)}px, ${v.y.toFixed(1)}px) scale(1.02)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'none';
+      });
+    });
+
+    // Confetti
+    const confettiRoot = document.getElementById('confetti');
+    function rand(min, max){ return Math.random() * (max-min) + min }
+    function fireConfetti(){
+      confettiRoot.classList.remove('hidden');
+      const colors = ['#a78bfa','#22d3ee','#34d399','#fb7185','#f59e0b'];
+      for(let i=0;i<100;i++){
+        const dot = document.createElement('div');
+        dot.className = 'dot';
+        dot.style.left = rand(0, window.innerWidth)+'px';
+        dot.style.top = rand(0, window.innerHeight)+'px';
+        dot.style.background = colors[Math.floor(Math.random()*colors.length)];
+        confettiRoot.appendChild(dot);
+        dot.animate([{ transform: 'translateY(0) scale(1)', opacity: 1 },
+                     { transform: `translate(${rand(-40,40)}px, ${rand(60,180)}px) scale(0.2)`, opacity: 0 }],
+                     { duration: rand(800, 1600), easing: 'cubic-bezier(.2,.65,.3,1)' }).onfinish = ()=> dot.remove();
+      }
+      setTimeout(()=> confettiRoot.classList.add('hidden'), 1200);
+    }
+
+    // Form: pack services into a single 'services' field, keep page in place, show mini thank-you
+    const form = document.getElementById('interestForm');
+    const thanks = document.getElementById('thanks');
+    form.addEventListener('submit', () => {
+      const selected = Array.from(form.querySelectorAll('input[name="svc"]:checked')).map(i=>i.value);
+      document.getElementById('servicesCombined').value = selected.join(', ');
+      fireConfetti();
+      if (thanks) { thanks.classList.remove('hidden'); setTimeout(()=> thanks.classList.add('hidden'), 2500); }
+    });
+  </script>
 </body>
 </html>
