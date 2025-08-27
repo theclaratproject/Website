@@ -1,127 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Clara T Project - Life Skills Coaching & Clarity Consulting</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    /* --- v1 hero scoped overrides (do not affect rest of site) --- */
-    #v1-hero .retro-heading {
-      font-family: 'Arial Black', sans-serif !important;
-      font-weight: 900;
-      letter-spacing: -0.02em;
-    }
-    #v1-hero .gradient-text {
-      background: linear-gradient(135deg, #db2777, #20b2aa, #ffd700);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    #v1-hero .retro-shadow {
-      box-shadow: 4px 4px 0px rgba(32, 178, 170, 0.3), 8px 8px 0px rgba(255, 215, 0, 0.2) !important;
-    }
-    #v1-hero .animate-pulse-glow {
-      animation: v1pulse 2s ease-in-out infinite;
-    }
-    @keyframes v1pulse {
-      0%,100% { box-shadow: 0 0 20px rgba(219, 39, 119, 0.3); }
-      50% { box-shadow: 0 0 40px rgba(219, 39, 119, 0.6); }
-    }
-    .card:hover {
-      transform: translateY(calc(-0.25rem * var(--hover-dir))) scale(1.02);
-    }
-  </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.card').forEach((card) => {
-        card.style.setProperty('--hover-dir', Math.random() > 0.5 ? 1 : -1);
-      });
-    });
-  </script>
-</head>
-<body class="bg-gray-50 text-gray-800">
-  <!-- Hero Section -->
-  <section id="v1-hero" class="text-center py-16 px-6 bg-white">
-    <h1 class="text-5xl md:text-6xl font-bold retro-heading gradient-text">The Clara T Project</h1>
-    <p class="mt-4 text-lg text-gray-700">Life Skills Coaching & Clarity Consulting</p>
-    <p class="mt-2 text-sm text-gray-500 italic">Big sister brain, clear life gains.</p>
-  </section>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Clara T Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-slate-50 text-slate-900">
+    <!-- Hero Section -->
+    <section id="v1-hero" class="text-center py-20 px-6 bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 text-white">
+      <h1 class="text-5xl md:text-6xl font-black tracking-tight">The Clara T Project</h1>
+      <p class="mt-4 text-xl">Life Skills Coaching & Clarity Consulting — Big sister brain, clear life gains.</p>
+    </section>
 
-  <!-- Services Cards Section -->
-  <section class="py-12 px-6 max-w-6xl mx-auto">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="card bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all">
-        <h3 class="text-xl font-semibold mb-2">Budget Glow-Up</h3>
-        <p>Optimize spending, organize your finances, and feel confident about your money plan.</p>
+    <!-- Services Section -->
+    <section class="py-12 px-6 max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-8">Pick your power-ups</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-xl p-6 shadow hover:shadow-xl transform transition-all duration-300">
+          <h3 class="text-xl font-semibold mb-2">Budget & Savings</h3>
+          <p class="text-gray-700">Budget setup, expense trimming, and smart money moves.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow hover:shadow-xl transform transition-all duration-300">
+          <h3 class="text-xl font-semibold mb-2">Tech, Tools & AI Help</h3>
+          <p class="text-gray-700">Troubleshooting, setup, and AI prompt tips.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow hover:shadow-xl transform transition-all duration-300">
+          <h3 class="text-xl font-semibold mb-2">Life Skills Help</h3>
+          <p class="text-gray-700">Calmer routines, clearer spaces, better habits.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow hover:shadow-xl transform transition-all duration-300">
+          <h3 class="text-xl font-semibold mb-2">Cooking & Meal Planning</h3>
+          <p class="text-gray-700">Grocery strategy, quick wins, flavor-forward meals.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow hover:shadow-xl transform transition-all duration-300">
+          <h3 class="text-xl font-semibold mb-2">Dating Profile Glow-Up</h3>
+          <p class="text-gray-700">Photos, prompts, and read-the-room refresh.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow hover:shadow-xl transform transition-all duration-300">
+          <h3 class="text-xl font-semibold mb-2">Plant Care & Garden Help</h3>
+          <p class="text-gray-700">Care schedules, propagation, greenhouse planning.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow hover:shadow-xl transform transition-all duration-300">
+          <h3 class="text-xl font-semibold mb-2">Smart Sister Sessions</h3>
+          <p class="text-gray-700">Real talk, warm support, and “let’s figure it out” energy.</p>
+        </div>
       </div>
-      <div class="card bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all">
-        <h3 class="text-xl font-semibold mb-2">Tech & Tools Help</h3>
-        <p>Get support with AI tools, automations, photo organizing, dating profiles, and more.</p>
-      </div>
-      <div class="card bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all">
-        <h3 class="text-xl font-semibold mb-2">Planning & Productivity</h3>
-        <p>Make a plan, build a tracker, prep for a move or job hunt, and get back on track with systems that make sense.</p>
-      </div>
-      <div class="card bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all">
-        <h3 class="text-xl font-semibold mb-2">Coaching Sessions</h3>
-        <p>Talk through your stuck spots with someone who gets it. Quick fix or deep dive—we'll find your next step.</p>
-      </div>
-      <div class="card bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all">
-        <h3 class="text-xl font-semibold mb-2">Plant & Home Help</h3>
-        <p>From what’s wrong with your aloe to setting up your compost bin—we’ll troubleshoot it together.</p>
-      </div>
-      <div class="card bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all">
-        <h3 class="text-xl font-semibold mb-2">Clara T Style</h3>
-        <p>Get input on outfits, gifts, or party plans—or plan a hangout for clarity with snacks & sparkle.</p>
-      </div>
-      <div class="card bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all">
-        <h3 class="text-xl font-semibold mb-2">Smart Sister Sessions</h3>
-        <p>Ask anything. Seriously. From car insurance to HSA hacks, I’ll break it down with zero judgment.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Form -->
-  <section class="bg-white py-12 px-6">
-    <div class="max-w-xl mx-auto">
-      <h2 class="text-2xl font-semibold mb-4 text-center">Start Your Clara T Session</h2>
-      <form name="clarat" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="clarat" />
-        <p class="hidden">
-          <label>Don’t fill this out: <input name="bot-field" /></label>
-        </p>
-        <div class="mb-4">
-          <label class="block text-sm font-medium">Name</label>
-          <input type="text" name="name" class="mt-1 w-full border-gray-300 rounded-md shadow-sm" required />
-        </div>
-        <div class="mb-4">
-          <label class="block text-sm font-medium">Email</label>
-          <input type="email" name="email" class="mt-1 w-full border-gray-300 rounded-md shadow-sm" required />
-        </div>
-        <div class="mb-4">
-          <label class="block text-sm font-medium">What do you need help with?</label>
-          <textarea name="message" rows="4" class="mt-1 w-full border-gray-300 rounded-md shadow-sm"></textarea>
-        </div>
-        <div class="mb-4">
-          <label class="block text-sm font-medium">Services Interested In</label>
-          <select name="services" multiple class="mt-1 w-full border-gray-300 rounded-md shadow-sm">
-            <option>Budget Glow-Up</option>
-            <option>Tech & Tools Help</option>
-            <option>Planning & Productivity</option>
-            <option>Coaching Sessions</option>
-            <option>Plant & Home Help</option>
-            <option>Clara T Style</option>
-            <option>Smart Sister Sessions</option>
-          </select>
-        </div>
-        <div class="text-center">
-          <button type="submit" class="bg-retro-magenta text-white px-6 py-2 rounded-md shadow-md hover:bg-pink-700">
-            Send Request
-          </button>
-        </div>
+    <!-- Reviews Section -->
+    <section class="py-12 bg-white text-center">
+      <div class="max-w-2xl mx-auto">
+        <div class="text-4xl text-yellow-400 mb-2">⭐⭐⭐⭐⭐</div>
+        <p class="text-gray-600">Reviews loading… Your words help shape this project, guide others, and keep me improving.</p>
+      </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="py-12 px-6 max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold mb-4 text-center">Tell me what you need</h2>
+      <form name="interestForm" method="POST" action="https://script.google.com/macros/s/AKfycbx6P0wWiPBUMgHV7GAMqQFVkM67v3jeJSpKrSo_aDkTQ6qJm_JHE9lymtjs8N6r8sGl2w/exec" class="space-y-4 bg-white p-6 rounded-xl shadow">
+        <input type="text" name="name" placeholder="Your name" required class="w-full border p-2 rounded" />
+        <input type="email" name="email" placeholder="you@example.com" required class="w-full border p-2 rounded" />
+        <fieldset>
+          <legend class="block mb-1 text-gray-700 font-medium">Services</legend>
+          <div class="space-y-1">
+            <label class="block"><input type="checkbox" name="services" value="Budget & Savings" /> Budget & Savings</label>
+            <label class="block"><input type="checkbox" name="services" value="Tech, Tools & AI Help" /> Tech, Tools & AI Help</label>
+            <label class="block"><input type="checkbox" name="services" value="Life Skills Help" /> Life Skills Help</label>
+            <label class="block"><input type="checkbox" name="services" value="Cooking & Meal Planning" /> Cooking & Meal Planning</label>
+            <label class="block"><input type="checkbox" name="services" value="Dating Profile Glow-Up" /> Dating Profile Glow-Up</label>
+            <label class="block"><input type="checkbox" name="services" value="Plant Care & Garden Help" /> Plant Care & Garden Help</label>
+            <label class="block"><input type="checkbox" name="services" value="Smart Sister Sessions" /> Smart Sister Sessions</label>
+          </div>
+        </fieldset>
+        <textarea name="message" placeholder="Quick note" rows="4" class="w-full border p-2 rounded"></textarea>
+        <button type="submit" class="px-4 py-2 rounded bg-indigo-600 text-white hover:bg-indigo-700">Submit</button>
+        <div id="confirmMsg" class="text-green-600 mt-2 hidden">Thanks! Your response has been recorded.</div>
       </form>
-    </div>
-  </section>
-</body>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-6 bg-slate-800 text-center text-slate-300">
+      <p>© <span id="year"></span> The Clara T Project — Big sister brain, clear life gains.</p>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Form confirmation message
+      document.forms['interestForm'].addEventListener('submit', function () {
+        setTimeout(() => {
+          document.getElementById('confirmMsg').style.display = 'block';
+        }, 200);
+      });
+    </script>
+  </body>
 </html>
