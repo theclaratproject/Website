@@ -1,99 +1,1009 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Clara T Project</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Clara T Project - Life Skills Coaching &amp; Clarity Consulting</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'retro-teal': '#0891b2',
+                        'retro-magenta': '#db2777',
+                        'retro-blue': '#3b82f6',
+                        'retro-purple': '#7c3aed',
+                        'retro-pink': '#ec4899',
+                        'retro-orange': '#ea580c',
+                        'retro-lime': '#65a30d',
+                        'retro-cyan': '#0891b2',
+                        'retro-violet': '#8b5cf6',
+                        'retro-emerald': '#059669',
+                        'retro-rose': '#e11d48',
+                        'retro-indigo': '#4f46e5',
+                        'retro-green': '#10b981',
+                        'retro-yellow': '#f59e0b'
+                    },
+                    fontFamily: {
+                        'retro': ['Comic Sans MS', 'cursive'],
+                        'modern': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            max-width: 100vw;
+            line-height: 1.6;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        html {
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+        
+        .retro-heading {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 2.8rem;
+            color: #1a202c;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+        
+        .logo-project {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 1.8rem;
+            color: #1a202c;
+            letter-spacing: 0.1em;
+            margin-top: 0.5rem;
+            line-height: 1.2;
+        }
+        
+        /* Typography consistency */
+        h1 {
+            line-height: 1.2;
+            font-weight: 700;
+        }
+        
+        h2 {
+            line-height: 1.3;
+            font-weight: 700;
+        }
+        
+        h3 {
+            line-height: 1.4;
+            font-weight: 600;
+        }
+        
+        p {
+            line-height: 1.7;
+            font-weight: 400;
+        }
+        
+        .text-lg {
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+        
+        .text-xl {
+            font-size: 1.25rem;
+            line-height: 1.7;
+        }
+        
+        .text-2xl {
+            font-size: 1.5rem;
+            line-height: 1.4;
+        }
+        
+        .text-3xl {
+            font-size: 1.875rem;
+            line-height: 1.3;
+        }
+        
+        .text-4xl {
+            font-size: 2.25rem;
+            line-height: 1.2;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .slow-pulse {
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        .hero-bg {
+            background: 
+                conic-gradient(from 0deg at 20% 30%, rgba(234, 88, 12, 0.15) 0deg, transparent 60deg, rgba(139, 92, 246, 0.12) 120deg, transparent 180deg),
+                conic-gradient(from 180deg at 80% 70%, rgba(5, 150, 105, 0.1) 0deg, transparent 90deg, rgba(225, 29, 72, 0.08) 180deg, transparent 270deg),
+                radial-gradient(ellipse at 50% 20%, rgba(79, 70, 229, 0.1) 0%, transparent 70%),
+                linear-gradient(135deg, #fef3c7 0%, #fde68a 30%, #fed7aa 60%, #f97316 100%);
+            position: relative;
+            overflow: hidden;
+            animation: heroShift 15s ease-in-out infinite;
+        }
+        
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(3px 3px at 20px 30px, rgba(234, 88, 12, 0.5), transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(101, 163, 13, 0.6), transparent),
+                radial-gradient(4px 4px at 90px 40px, rgba(139, 92, 246, 0.6), transparent),
+                radial-gradient(1px 1px at 130px 80px, rgba(5, 150, 105, 0.4), transparent),
+                radial-gradient(2px 2px at 160px 30px, rgba(225, 29, 72, 0.5), transparent),
+                radial-gradient(1px 1px at 60px 90px, rgba(79, 70, 229, 0.8), transparent),
+                radial-gradient(2px 2px at 180px 60px, rgba(59, 130, 246, 0.3), transparent),
+                radial-gradient(3px 3px at 110px 110px, rgba(236, 72, 153, 0.4), transparent),
+                radial-gradient(1px 1px at 200px 40px, rgba(8, 145, 178, 0.6), transparent);
+            background-repeat: repeat;
+            background-size: 200px 120px;
+            animation: sparkleMove 25s linear infinite;
+        }
+        
+        @keyframes sparkleMove {
+            0% { transform: translateX(0px) translateY(0px); }
+            100% { transform: translateX(-200px) translateY(-100px); }
+        }
+        
+        @keyframes heroShift {
+            0%, 100% { 
+                filter: hue-rotate(0deg) brightness(1);
+                transform: scale(1);
+            }
+            33% { 
+                filter: hue-rotate(10deg) brightness(1.05);
+                transform: scale(1.02);
+            }
+            66% { 
+                filter: hue-rotate(-5deg) brightness(0.98);
+                transform: scale(0.99);
+            }
+        }
+        
+        .advanced-pattern {
+            background: 
+                conic-gradient(from 45deg at 25% 25%, rgba(5, 150, 105, 0.12) 0deg, transparent 90deg, rgba(225, 29, 72, 0.1) 180deg, transparent 270deg),
+                conic-gradient(from 225deg at 75% 75%, rgba(139, 92, 246, 0.08) 0deg, transparent 120deg, rgba(234, 88, 12, 0.06) 240deg, transparent 360deg),
+                radial-gradient(ellipse at 30% 70%, rgba(101, 163, 13, 0.05) 0%, transparent 60%),
+                linear-gradient(135deg, #fef7ff 0%, #fae8ff 40%, #f3e8ff 80%, #e9d5ff 100%);
+            position: relative;
+            animation: patternShift 20s ease-in-out infinite;
+        }
+        
+        .advanced-pattern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(2px 2px at 25px 25px, rgba(225, 29, 72, 0.6), transparent),
+                radial-gradient(3px 3px at 75px 75px, rgba(5, 150, 105, 0.5), transparent),
+                radial-gradient(4px 4px at 125px 25px, rgba(139, 92, 246, 0.7), transparent),
+                radial-gradient(1px 1px at 175px 75px, rgba(234, 88, 12, 0.4), transparent),
+                radial-gradient(2px 2px at 50px 100px, rgba(101, 163, 13, 0.9), transparent),
+                radial-gradient(1px 1px at 100px 50px, rgba(79, 70, 229, 0.7), transparent),
+                radial-gradient(3px 3px at 150px 150px, rgba(245, 158, 11, 0.5), transparent),
+                radial-gradient(2px 2px at 200px 100px, rgba(236, 72, 153, 0.6), transparent);
+            background-size: 180px 180px;
+            animation: patternMove 30s linear infinite;
+        }
+        
+        @keyframes patternMove {
+            0% { transform: translateX(0px) translateY(0px); }
+            100% { transform: translateX(-150px) translateY(-150px); }
+        }
+        
+        @keyframes patternShift {
+            0%, 100% { 
+                filter: hue-rotate(0deg) brightness(1) saturate(1);
+            }
+            50% { 
+                filter: hue-rotate(15deg) brightness(1.1) saturate(1.2);
+            }
+        }
+        
+        .retro-shadow {
+            box-shadow: 12px 12px 0px rgba(8, 145, 178, 0.2), 6px 6px 0px rgba(59, 130, 246, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .retro-shadow:hover {
+            box-shadow: 16px 16px 0px rgba(8, 145, 178, 0.3), 8px 8px 0px rgba(59, 130, 246, 0.2);
+            transform: translate(-2px, -2px);
+        }
+        
+        .retro-shadow-teal {
+            box-shadow: 12px 12px 0px rgba(32, 178, 170, 0.2), 6px 6px 0px rgba(255, 215, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .retro-shadow-teal:hover {
+            box-shadow: 16px 16px 0px rgba(32, 178, 170, 0.3), 8px 8px 0px rgba(255, 215, 0, 0.2);
+            transform: translate(-2px, -2px);
+        }
+        
+        .retro-shadow-blue {
+            box-shadow: 12px 12px 0px rgba(59, 130, 246, 0.2), 6px 6px 0px rgba(147, 197, 253, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .retro-shadow-blue:hover {
+            box-shadow: 16px 16px 0px rgba(59, 130, 246, 0.3), 8px 8px 0px rgba(147, 197, 253, 0.2);
+            transform: translate(-2px, -2px);
+        }
+        
+        .retro-shadow-purple {
+            box-shadow: 12px 12px 0px rgba(156, 39, 176, 0.2), 6px 6px 0px rgba(255, 107, 53, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .retro-shadow-purple:hover {
+            box-shadow: 16px 16px 0px rgba(156, 39, 176, 0.3), 8px 8px 0px rgba(255, 107, 53, 0.2);
+            transform: translate(-2px, -2px);
+        }
+        
+        .service-icon {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(233, 30, 99, 0.05), rgba(32, 178, 170, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .service-icon:hover {
+            transform: scale(1.05) rotate(2deg) translateY(-5px);
+        }
+        
+        .service-icon:hover::before {
+            opacity: 1;
+        }
+        
+        .lightbulb-float {
+            animation: float 4s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.3));
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-8px) rotate(2deg); }
+            50% { transform: translateY(-15px) rotate(0deg); }
+            75% { transform: translateY(-8px) rotate(-2deg); }
+        }
+        
+        .geometric-accent {
+            position: absolute;
+            opacity: 0.1;
+            animation: geometricFloat 15s ease-in-out infinite;
+        }
+        
+        @keyframes geometricFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(120deg); }
+            66% { transform: translateY(10px) rotate(240deg); }
+        }
+        
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+        
+        .parallax-element {
+            transition: transform 0.1s ease-out;
+        }
+        
+        .interactive-bg {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            position: relative;
+        }
+        
+        .interactive-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(233, 30, 99, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+        
+        .text-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .text-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        .stagger-5 { transition-delay: 0.5s; }
+        .stagger-6 { transition-delay: 0.6s; }
+    </style>
+
+/* --- v1 hero scoped overrides (do not affect rest of site) --- */
+#v1-hero .retro-heading {
+  font-family: 'Arial Black', sans-serif !important;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+#v1-hero .gradient-text {
+  background: linear-gradient(135deg, #db2777, #20b2aa, #ffd700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+#v1-hero .retro-shadow {
+  box-shadow: 4px 4px 0px rgba(32, 178, 170, 0.3), 8px 8px 0px rgba(255, 215, 0, 0.2) !important;
+}
+#v1-hero .animate-pulse-glow { 
+  animation: v1pulse 2s ease-in-out infinite; 
+}
+@keyframes v1pulse {
+  0%,100% { box-shadow: 0 0 20px rgba(219, 39, 119, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(219, 39, 119, 0.6); }
+}
+
+
 </head>
-<body class="bg-slate-50 text-slate-900">
-  <!-- Hero Section -->
-  <section id="v1-hero" class="text-center py-20 px-6 bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 text-white">
-    <h1 class="text-5xl md:text-6xl font-black tracking-tight">The Clara T Project</h1>
-    <p class="mt-4 text-xl">Life Skills Coaching & Clarity Consulting — Big sister brain, clear life gains.</p>
-  </section>
-
-  <!-- Services Section -->
-  <section class="py-12 px-6 max-w-6xl mx-auto">
-    <h2 class="text-3xl font-bold text-center mb-8">Pick your power-ups</h2>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="bg-white rounded-xl p-6 shadow hover:shadow-xl transform transition-all duration-300">
-        <h3 class="text-xl font-semibold mb-2">Budget & Savings</h3>
-        <p class="text-gray-700">Budget setup, expense trimming, and smart money moves.</p>
-      </div>
-      <div class="bg-white rounded-xl p-6 shadow hover:shadow-xl transform transition-all duration-300">
-        <h3 class="text-xl font-semibold mb-2">Tech, Tools & AI Help</h3>
-        <p class="text-gray-700">Troubleshooting, setup, and AI prompt tips.</p>
-      </div>
-      <div class="bg-white rounded-xl p-6 shadow hover:shadow-xl transform transition-all duration-300">
-        <h3 class="text-xl font-semibold mb-2">Life Skills Help</h3>
-        <p class="text-gray-700">Calmer routines, clearer spaces, better habits.</p>
-      </div>
-      <div class="bg-white rounded-xl p-6 shadow hover:shadow-xl transform transition-all duration-300">
-        <h3 class="text-xl font-semibold mb-2">Cooking & Meal Planning</h3>
-        <p class="text-gray-700">Grocery strategy, quick wins, flavor-forward meals.</p>
-      </div>
-      <div class="bg-white rounded-xl p-6 shadow hover:shadow-xl transform transition-all duration-300">
-        <h3 class="text-xl font-semibold mb-2">Dating Profile Glow-Up</h3>
-        <p class="text-gray-700">Photos, prompts, and read-the-room refresh.</p>
-      </div>
-      <div class="bg-white rounded-xl p-6 shadow hover:shadow-xl transform transition-all duration-300">
-        <h3 class="text-xl font-semibold mb-2">Plant Care & Garden Help</h3>
-        <p class="text-gray-700">Care schedules, propagation, greenhouse planning.</p>
-      </div>
-      <div class="bg-white rounded-xl p-6 shadow hover:shadow-xl transform transition-all duration-300">
-        <h3 class="text-xl font-semibold mb-2">Smart Sister Sessions</h3>
-        <p class="text-gray-700">Real talk, warm support, and “let’s figure it out” energy.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Reviews Section -->
-  <section class="py-12 bg-white text-center">
-    <div class="max-w-2xl mx-auto">
-      <div class="text-4xl text-yellow-400 mb-2">⭐⭐⭐⭐⭐</div>
-      <p class="text-gray-600">Reviews loading… Your words help shape this project, guide others, and keep me improving.</p>
-    </div>
-  </section>
-
-  <!-- Form Section -->
-  <section class="py-12 px-6 max-w-3xl mx-auto">
-    <h2 class="text-2xl font-bold mb-4 text-center">Tell me what you need</h2>
-    <form name="interestForm" method="POST" action="https://script.google.com/macros/s/AKfycbx6P0wWiPBUMgHV7GAMqQFVkM67v3jeJSpKrSo_aDkTQ6qJm_JHE9lymtjs8N6r8sGl2w/exec" class="space-y-4 bg-white p-6 rounded-xl shadow">
-      <input type="text" name="name" placeholder="Your name" required class="w-full border p-2 rounded" />
-      <input type="email" name="email" placeholder="you@example.com" required class="w-full border p-2 rounded" />
-      <fieldset>
-        <legend class="block mb-1 text-gray-700 font-medium">Services</legend>
-        <div class="space-y-1">
-          <label class="block"><input type="checkbox" name="services" value="Budget & Savings" /> Budget & Savings</label>
-          <label class="block"><input type="checkbox" name="services" value="Tech, Tools & AI Help" /> Tech, Tools & AI Help</label>
-          <label class="block"><input type="checkbox" name="services" value="Life Skills Help" /> Life Skills Help</label>
-          <label class="block"><input type="checkbox" name="services" value="Cooking & Meal Planning" /> Cooking & Meal Planning</label>
-          <label class="block"><input type="checkbox" name="services" value="Dating Profile Glow-Up" /> Dating Profile Glow-Up</label>
-          <label class="block"><input type="checkbox" name="services" value="Plant Care & Garden Help" /> Plant Care & Garden Help</label>
-          <label class="block"><input type="checkbox" name="services" value="Smart Sister Sessions" /> Smart Sister Sessions</label>
-        </div>
-      </fieldset>
-      <textarea name="message" placeholder="Quick note" rows="4" class="w-full border p-2 rounded"></textarea>
-      <button type="submit" class="px-4 py-2 rounded bg-indigo-600 text-white hover:bg-indigo-700">Submit</button>
-      <div id="confirmMsg" class="text-green-600 mt-2 hidden">Thanks! Your response has been recorded.</div>
-    </form>
-  </section>
-
-  <!-- Footer -->
-  <footer class="py-6 bg-slate-800 text-center text-slate-300">
-    <p>© <span id="year"></span> The Clara T Project — Big sister brain, clear life gains.</p>
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Form confirmation message
-    document.forms['interestForm'].addEventListener('submit', function () {
-      setTimeout(() => {
-        document.getElementById('confirmMsg').style.display = 'block';
-      }, 200);
-    });
-  </script>
-</body>
+<body class="scroll-smooth bg-white">
+<!-- Hero Section -->
+<section class="min-h-screen flex items-center justify-center px-4 py-20 relative overflow-hidden hero-bg interactive-bg" id="v1-hero">
+<div class="absolute top-10 right-10 lightbulb-float parallax-element">
+<svg class="w-20 h-20 text-retro-yellow" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.8 12.16 7 10.63 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1zM9 21h6c.55 0 1 .45 1 1s-.45 1-1 1H9c-.55 0-1-.45-1-1s.45-1 1-1z"></path>
+</svg>
+</div>
+<div class="text-center max-w-5xl mx-auto z-10 relative">
+<div class="flex flex-col items-center mb-8 text-reveal stagger-1">
+<div class="relative mb-4 transform hover:scale-105 transition-all duration-500">
+<!-- Outer glow ring -->
+<div class="absolute -inset-8 bg-gradient-to-r from-retro-magenta via-retro-teal to-retro-yellow rounded-full opacity-20 blur-xl animate-pulse"></div>
+<!-- Logo container with enhanced background -->
+<div class="bg-white backdrop-blur-sm rounded-3xl px-12 py-8 shadow-2xl border-4 border-white relative overflow-hidden transform hover:rotate-1 transition-all duration-300" style="box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.8), 0 0 30px rgba(99, 102, 241, 0.3);">
+<!-- Enhanced decorative elements -->
+<div class="absolute top-3 left-3 w-4 h-4 bg-retro-magenta rounded-full opacity-80 animate-pulse" style="box-shadow: 0 0 10px rgba(233, 30, 99, 0.6);"></div>
+<div class="absolute top-3 right-3 w-3 h-3 bg-retro-teal rounded-full opacity-80 animate-pulse" style="animation-delay: 0.5s; box-shadow: 0 0 8px rgba(32, 178, 170, 0.6);"></div>
+<div class="absolute bottom-3 left-5 w-3 h-3 bg-retro-yellow rounded-full opacity-80 animate-pulse" style="animation-delay: 1s; box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);"></div>
+<div class="absolute bottom-3 right-5 w-4 h-4 bg-retro-purple rounded-full opacity-80 animate-pulse" style="animation-delay: 1.5s; box-shadow: 0 0 10px rgba(156, 39, 176, 0.6);"></div>
+<!-- Floating sparkles -->
+<div class="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full opacity-90 animate-ping" style="animation-delay: 2s;"></div>
+<div class="absolute top-3/4 right-1/4 w-1 h-1 bg-white rounded-full opacity-90 animate-ping" style="animation-delay: 3s;"></div>
+<!-- Main logo text with enhanced styling -->
+<div class="relative z-10 text-center">
+<div class="retro-heading text-3xl md:text-5xl font-bold text-gray-800 leading-tight">
+                                The Clara T
+                            </div>
+<div class="retro-heading text-2xl md:text-4xl font-bold text-retro-magenta mt-1">
+                                PROJECT
+                            </div>
+<!-- Underline accent -->
+<div class="mt-2 mx-auto w-24 h-1 bg-gradient-to-r from-retro-teal to-retro-yellow rounded-full"></div>
+</div>
+<!-- Enhanced gradient overlay -->
+<div class="absolute inset-0 bg-gradient-to-br from-retro-teal/10 via-transparent via-transparent to-retro-magenta/10 rounded-3xl"></div>
+<div class="absolute inset-0 bg-gradient-to-tr from-retro-yellow/5 via-transparent to-retro-purple/5 rounded-3xl"></div>
+</div>
+<!-- Enhanced shadow layers -->
+<div class="absolute -bottom-4 -right-4 w-full h-full bg-retro-magenta/30 rounded-3xl -z-10 blur-sm"></div>
+<div class="absolute -bottom-2 -right-2 w-full h-full bg-retro-teal/25 rounded-3xl -z-10"></div>
+<div class="absolute -bottom-1 -right-1 w-full h-full bg-retro-yellow/20 rounded-3xl -z-10"></div>
+</div>
+</div>
+<div class="mb-12">
+<h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6 max-w-3xl mx-auto leading-tight text-reveal stagger-2">
+                    Your big sister guide for life's wild ride!
+                </h1>
+<p class="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed text-reveal stagger-3">
+                    For the tricky stuff, the tiny stuff, and everything in between — I've got you.
+                </p>
+<div class="section-divider text-reveal stagger-4"></div>
+</div>
+</div>
+<!-- Enhanced Geometric accents -->
+<div class="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-br from-retro-teal to-retro-magenta opacity-10 rounded-full transform -translate-x-20 translate-y-20 geometric-accent"></div>
+<div class="absolute top-1/4 left-10 w-12 h-12 bg-retro-yellow transform rotate-45 geometric-accent opacity-20"></div>
+<div class="absolute top-1/3 right-20 w-16 h-16 border-4 border-retro-purple rounded-full geometric-accent"></div>
+<div class="absolute top-1/2 left-1/4 w-6 h-6 bg-blue-500 rounded-full geometric-accent"></div>
+<div class="absolute bottom-1/4 right-1/3 w-10 h-10 border-2 border-retro-teal transform rotate-12 geometric-accent"></div>
+<!-- Floating particles -->
+<div class="absolute top-20 left-1/3 w-2 h-2 bg-retro-yellow rounded-full opacity-30 geometric-accent" style="animation-delay: -2s;"></div>
+<div class="absolute bottom-32 right-1/4 w-3 h-3 bg-retro-magenta rounded-full opacity-20 geometric-accent" style="animation-delay: -5s;"></div>
+<div class="absolute top-1/2 right-10 w-2 h-2 bg-retro-purple rounded-full opacity-40 geometric-accent" style="animation-delay: -8s;"></div>
+</section>
+<!-- About Clara T Section -->
+<section class="py-16 px-4 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
+<div class="max-w-5xl mx-auto">
+<div class="text-center mb-12">
+<h2 class="retro-heading text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+                    Hey there — I'm Desiree!
+                </h2>
+</div>
+<div class="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-100">
+<div class="float-left mr-6 mb-4">
+<a class="block" href="https://linkedin.com/in/YOUR_LINKEDIN_USERNAME" rel="noopener noreferrer" target="_blank">
+<div class="w-32 h-32 rounded-full overflow-hidden retro-shadow bg-gradient-to-br from-emerald-400 to-teal-500 p-2 hover:scale-105 transition-transform duration-300 cursor-pointer">
+<img alt="Desiree - Your Life Skills Guide" class="w-full h-full rounded-full object-cover border-3 border-white" src="https://i.imgur.com/zq9qbLz.jpeg" style="object-position: center 15%;"/>
+</div>
+</a>
+</div>
+<p class="text-lg text-gray-700 mb-5">
+                    Welcome to The Clara T Project — a place for practical help, clever solutions, and a little big-sister real talk. I'm Desiree, here in the trenches of everyday life with you. I don't have it all figured out (who does?), but I've got a knack for making the hard stuff easier — whether that's untangling a budget, finding the right words for a resume, getting a dating profile to shine, or even tackling that stubborn pimple you can't reach.
+                </p>
+<p class="text-lg text-gray-700 mb-5">
+                    I believe adulting doesn't have to be scary or overwhelming. With the right systems, a dash of creativity, and a well-placed pun, you can shape a life that feels organized enough and still true to you.
+                </p>
+<p class="text-lg text-gray-700 mb-6">
+                    Whatever you're tackling — from the big decisions to the little annoyances — I'm here to help you sort it out without judgment, and maybe have a few laughs along the way.
+                </p>
+<div class="clear-left flex flex-wrap items-center gap-3">
+<div class="flex items-center bg-retro-teal/10 rounded-full px-4 py-2">
+<span class="text-retro-teal font-semibold">Encouragement on Tap</span>
+</div>
+<div class="flex items-center bg-retro-magenta/10 rounded-full px-4 py-2">
+<span class="text-retro-magenta font-semibold">Creative Problem-Solving</span>
+</div>
+<div class="flex items-center bg-retro-yellow/10 rounded-full px-4 py-2">
+<span class="text-retro-yellow font-semibold">Turning Mess Into Less</span>
+</div>
+<div class="flex items-center bg-retro-pink/10 rounded-full px-4 py-2">
+<span class="text-retro-pink font-semibold">Oddly Specific Solutions</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-16 px-4 bg-gradient-to-br from-violet-50 via-purple-50 to-fuchsia-50">
+<div class="max-w-6xl mx-auto">
+<div class="text-center mb-12">
+<h2 class="retro-heading text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+                    What I'm Here For:
+                </h2>
+<p class="text-lg text-gray-600 max-w-2xl mx-auto mb-4">
+                    From the big life decisions to the tiny daily annoyances — I've got practical solutions for it all.
+                </p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Budget & Savings -->
+<div class="bg-white rounded-2xl p-6 retro-shadow-teal service-icon border-2 border-emerald-200 hover:border-emerald-400 transition-all duration-300">
+<div class="w-16 h-16 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-lg">
+<svg class="w-12 h-12 text-white" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z"></path>
+</svg>
+</div>
+<h3 class="text-xl font-bold text-emerald-800 mb-3 text-center">Budget &amp; Savings</h3>
+<p class="text-emerald-700 text-center leading-relaxed">Smarter money moves without the boring lecture. From building a budget that actually fits your life to finding sneaky ways to keep more cash in your pocket.</p>
+</div>
+<!-- Tech, Tools & AI Help -->
+<div class="bg-white rounded-2xl p-6 retro-shadow-purple service-icon border-2 border-violet-200 hover:border-violet-400 transition-all duration-300">
+<div class="w-16 h-16 bg-gradient-to-br from-violet-500 to-purple-600 rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-lg">
+<svg class="w-12 h-12 text-white" fill="currentColor" viewbox="0 0 24 24">
+<path d="M20 3H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h3l-1 1v2h12v-2l-1-1h3c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 13H4V5h16v11z"></path>
+</svg>
+</div>
+<h3 class="text-xl font-bold text-violet-800 mb-3 text-center">Tech, Tools &amp; AI Help</h3>
+<p class="text-violet-700 text-center leading-relaxed">Your patient, non-judgy tech buddy. I'll help you set up devices, wrangle apps, and get AI to actually do what you want.</p>
+</div>
+<!-- Life Skills Help -->
+<div class="bg-white rounded-2xl p-6 retro-shadow-blue service-icon border-2 border-sky-200 hover:border-sky-400 transition-all duration-300">
+<div class="w-16 h-16 bg-gradient-to-br from-sky-400 to-blue-500 rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-lg">
+<svg class="w-12 h-12 text-white" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+</div>
+<h3 class="text-xl font-bold text-sky-800 mb-3 text-center">Life Skills Help</h3>
+<p class="text-sky-700 text-center leading-relaxed">The practical stuff school skipped. Cooking, cleaning, laundry, car basics, insurance, taxes—because "adulting" shouldn't require Googling every five minutes.</p>
+</div>
+<!-- Career & Profile Glow-Up -->
+<div class="bg-white rounded-2xl p-6 retro-shadow service-icon border-2 border-rose-200 hover:border-rose-400 transition-all duration-300">
+<div class="w-16 h-16 bg-gradient-to-br from-rose-400 to-pink-500 rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-lg">
+<svg class="w-12 h-12 text-white" fill="currentColor" viewbox="0 0 24 24">
+<path d="M10 2h4c1.1 0 2 .9 2 2v2h4c1.1 0 2 .9 2 2v11c0 1.1-.9 2-2 2H2c-1.1 0-2-.9-2-2V8c0-1.1.9-2 2-2h4V4c0-1.1.9-2 2-2zm4 4V4h-4v2h4zm6 13V8H4v11h16z"></path>
+</svg>
+</div>
+<h3 class="text-xl font-bold text-rose-800 mb-3 text-center">Career &amp; Profile Glow-Up</h3>
+<p class="text-rose-700 text-center leading-relaxed">Goals and game plans meet profiles and resumes that get noticed. It's your next chapter—let's make it look and sound amazing.</p>
+</div>
+<!-- Mind, Mood & People -->
+<div class="bg-white rounded-2xl p-6 retro-shadow service-icon border-2 border-amber-200 hover:border-amber-400 transition-all duration-300">
+<div class="w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-lg">
+<svg class="w-12 h-12 text-white" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+</svg>
+</div>
+<h3 class="text-xl font-bold text-amber-800 mb-3 text-center">Mind, Mood &amp; People</h3>
+<p class="text-amber-700 text-center leading-relaxed">Mindset shifts and "aha" moments that help you see yourself and your relationships in a new light—whether it's your partner, your coworker, or your own brain.</p>
+</div>
+<!-- Parenting Perspective -->
+<div class="bg-white rounded-2xl p-6 retro-shadow-blue service-icon border-2 border-lime-200 hover:border-lime-400 transition-all duration-300">
+<div class="w-16 h-16 bg-gradient-to-br from-lime-400 to-green-500 rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-lg">
+<div class="text-3xl">👶</div>
+</div>
+<h3 class="text-xl font-bold text-lime-800 mb-3 text-center">Parenting Perspective</h3>
+<p class="text-lime-700 text-center leading-relaxed">A relatable sounding board for navigating parenting ups and downs, from daily wins to "are we even doing this right?" moments.</p>
+</div>
+<!-- Travel Planning -->
+<div class="bg-white rounded-2xl p-6 retro-shadow-purple service-icon border-2 border-indigo-200 hover:border-indigo-400 transition-all duration-300">
+<div class="w-16 h-16 bg-gradient-to-br from-indigo-400 to-blue-500 rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-lg">
+<div class="text-3xl">✈️</div>
+</div>
+<h3 class="text-xl font-bold text-indigo-800 mb-3 text-center">Travel Planning</h3>
+<p class="text-indigo-700 text-center leading-relaxed">Adventures without the overwhelm. Itineraries, hidden gems, and balanced trips that fit your budget and your vibe.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section class="py-16 px-4 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+<div class="max-w-4xl mx-auto">
+<div class="text-center mb-12">
+<h2 class="retro-heading text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+                    What People Are Saying:
+                </h2>
+</div>
+<!-- Reviews Loading Message -->
+<div class="max-w-2xl mx-auto">
+<div class="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-md border-l-4 border-retro-teal text-center">
+<div class="text-lg mb-4">⭐⭐⭐⭐⭐</div>
+<h3 class="text-xl font-bold text-gray-800 mb-3">Reviews loading…</h3>
+<p class="text-gray-600 leading-relaxed">
+                        Your words help shape this project, guide others, and keep me improving.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Interest Form Section -->
+<section class="py-16 px-4 bg-white relative overflow-hidden advanced-pattern interactive-bg" id="interest-form">
+<div class="absolute inset-0"></div>
+<div class="absolute inset-0">
+<div class="absolute top-20 left-20 w-4 h-4 bg-blue-500 rounded-full animate-bounce shadow-lg" style="animation-delay: 0s; animation-duration: 3s; box-shadow: 0 0 15px rgba(59, 130, 246, 0.6); opacity: 0.7;"></div>
+<div class="absolute top-40 right-32 w-3 h-3 bg-cyan-500 rounded-full animate-bounce shadow-lg" style="animation-delay: 1s; animation-duration: 4s; box-shadow: 0 0 12px rgba(6, 182, 212, 0.6); opacity: 0.6;"></div>
+<div class="absolute bottom-32 left-1/3 w-5 h-5 bg-retro-yellow rounded-full animate-bounce shadow-lg" style="animation-delay: 2s; animation-duration: 3.5s; box-shadow: 0 0 18px rgba(217, 119, 6, 0.5); opacity: 0.6;"></div>
+<div class="absolute top-1/3 right-1/4 w-2 h-2 bg-sky-400 rounded-full animate-bounce shadow-lg" style="animation-delay: 1.5s; animation-duration: 4.5s; box-shadow: 0 0 10px rgba(56, 189, 248, 0.5); opacity: 0.5;"></div>
+<div class="absolute bottom-20 right-20 w-3 h-3 bg-teal-500 rounded-full animate-bounce shadow-lg" style="animation-delay: 0.5s; animation-duration: 3.8s; box-shadow: 0 0 12px rgba(20, 184, 166, 0.6); opacity: 0.6;"></div>
+<div class="absolute top-10 right-10 w-2 h-2 bg-white rounded-full animate-bounce shadow-lg" style="animation-delay: 3s; animation-duration: 2.5s; box-shadow: 0 0 10px rgba(255, 255, 255, 0.9); opacity: 0.9;"></div>
+<div class="absolute bottom-10 left-10 w-3 h-3 bg-indigo-400 rounded-full animate-bounce shadow-lg" style="animation-delay: 4s; animation-duration: 3.2s; box-shadow: 0 0 12px rgba(129, 140, 248, 0.8); opacity: 0.8;"></div>
+</div>
+<div class="max-w-4xl mx-auto relative z-10">
+<div class="text-center mb-12">
+<div class="text-6xl mx-auto mb-4 lightbulb-float">✨</div>
+<h2 class="retro-heading text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+                    How Can I Help?
+                </h2>
+<p class="text-lg text-gray-600 max-w-2xl mx-auto mb-4">Let's figure out what's really going on and create a simple plan that actually works. No fluff, no pressure—just real solutions you can use right away.</p>
+</div>
+<form action="https://script.google.com/macros/s/AKfycby_pDhXGDa5TWyTP1HSPcCC-nYTBzduiF8cUwTQAd0Vt7Q-IkBOAxYqyDMrgI3tc0vS/exec" class="bg-white/80 backdrop-blur-sm rounded-3xl p-6 retro-shadow border border-gray-100" method="POST">
+<div class="mb-5">
+<label class="block text-gray-700 font-medium mb-2 text-lg">Your Name *</label>
+<input class="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:border-retro-magenta focus:outline-none transition-colors text-lg" name="name" required="" type="text"/>
+</div>
+<div class="mb-5">
+<label class="block text-gray-700 font-medium mb-2 text-lg">Email Address *</label>
+<input class="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:border-retro-magenta focus:outline-none transition-colors text-lg" name="email" required="" type="email"/>
+</div>
+<div class="mb-5">
+<label class="block text-gray-700 font-medium mb-3 text-lg">What can I help you with? (Check all that apply)</label>
+<div class="grid md:grid-cols-2 gap-3">
+<label class="flex items-start bg-gray-50 rounded-xl p-3 hover:bg-emerald-100 transition-colors cursor-pointer min-h-[100px]">
+<input class="w-4 h-4 text-emerald-600 rounded border-2 border-gray-300 hover:border-emerald-500 focus:ring-emerald-500 focus:ring-2 transition-colors mt-1 mr-3 flex-shrink-0" name="services" type="checkbox" value="Budget &amp; Savings"/>
+<div class="flex-1">
+<div class="font-medium mb-1 text-lg">Budget &amp; Savings</div>
+<p class="text-gray-600 leading-relaxed">Budget setup, expense trimming, and smart money moves.</p>
+</div>
+</label>
+<label class="flex items-start bg-gray-50 rounded-xl p-3 hover:bg-violet-100 transition-colors cursor-pointer min-h-[100px]">
+<input class="w-4 h-4 text-violet-600 rounded border-2 border-gray-300 hover:border-violet-500 focus:ring-violet-500 focus:ring-2 transition-colors mt-1 mr-3 flex-shrink-0" name="services" type="checkbox" value="Tech, Tools &amp; AI Help"/>
+<div class="flex-1">
+<div class="font-medium mb-1 text-lg">Tech, Tools &amp; AI Help</div>
+<p class="text-gray-600 leading-relaxed">Troubleshooting, setup, and AI prompt tips.</p>
+</div>
+</label>
+<label class="flex items-start bg-gray-50 rounded-xl p-3 hover:bg-sky-100 transition-colors cursor-pointer min-h-[100px]">
+<input class="w-4 h-4 text-sky-600 rounded border-2 border-gray-300 hover:border-sky-500 focus:ring-sky-500 focus:ring-2 transition-colors mt-1 mr-3 flex-shrink-0" name="services" type="checkbox" value="Life Skills Help"/>
+<div class="flex-1">
+<div class="font-medium mb-1 text-lg">Life Skills Help</div>
+<p class="text-gray-600 leading-relaxed">Practical skills from cooking to car basics.</p>
+</div>
+</label>
+<label class="flex items-start bg-gray-50 rounded-xl p-3 hover:bg-rose-100 transition-colors cursor-pointer min-h-[100px]">
+<input class="w-4 h-4 text-rose-600 rounded border-2 border-gray-300 hover:border-rose-500 focus:ring-rose-500 focus:ring-2 transition-colors mt-1 mr-3 flex-shrink-0" name="services" type="checkbox" value="Career &amp; Profile Glow-Up"/>
+<div class="flex-1">
+<div class="font-medium mb-1 text-lg">Career &amp; Profile Glow-Up</div>
+<p class="text-gray-600 leading-relaxed">Goals, plans, and standout profiles/resumes.</p>
+</div>
+</label>
+<label class="flex items-start bg-gray-50 rounded-xl p-3 hover:bg-amber-100 transition-colors cursor-pointer min-h-[100px]">
+<input class="w-4 h-4 text-amber-600 rounded border-2 border-gray-300 hover:border-amber-500 focus:ring-amber-500 focus:ring-2 transition-colors mt-1 mr-3 flex-shrink-0" name="services" type="checkbox" value="Mind, Mood &amp; People"/>
+<div class="flex-1">
+<div class="font-medium mb-1 text-lg">Mind, Mood &amp; People</div>
+<p class="text-gray-600 leading-relaxed">Mindset shifts and relationship insights.</p>
+</div>
+</label>
+<label class="flex items-start bg-gray-50 rounded-xl p-3 hover:bg-lime-100 transition-colors cursor-pointer min-h-[100px]">
+<input class="w-4 h-4 text-lime-600 rounded border-2 border-gray-300 hover:border-lime-500 focus:ring-lime-500 focus:ring-2 transition-colors mt-1 mr-3 flex-shrink-0" name="services" type="checkbox" value="Parenting Perspective"/>
+<div class="flex-1">
+<div class="font-medium mb-1 text-lg">Parenting Perspective</div>
+<p class="text-gray-600 leading-relaxed">A relatable sounding board for parenting wins and challenges.</p>
+</div>
+</label>
+<label class="flex items-start bg-gray-50 rounded-xl p-3 hover:bg-indigo-100 transition-colors cursor-pointer min-h-[100px]">
+<input class="w-4 h-4 text-indigo-600 rounded border-2 border-gray-300 hover:border-indigo-500 focus:ring-indigo-500 focus:ring-2 transition-colors mt-1 mr-3 flex-shrink-0" name="services" type="checkbox" value="Travel Planning"/>
+<div class="flex-1">
+<div class="font-medium mb-1 text-lg">Travel Planning</div>
+<p class="text-gray-600 leading-relaxed">Itineraries, hidden gems, and balanced trips.</p>
+</div>
+</label>
+</div>
+</div>
+<div class="mb-6">
+<label class="block text-gray-700 font-medium mb-2 text-lg">Tell me a bit about what you're hoping to work on:</label>
+<textarea class="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:border-retro-magenta focus:outline-none transition-colors text-lg" name="message" placeholder="What's your biggest challenge right now? What would success look like for you?" rows="3"></textarea>
+</div>
+<div class="text-center">
+<button class="bg-retro-magenta hover:bg-retro-magenta/80 text-white font-bold py-4 px-10 rounded-full text-xl retro-shadow transform hover:scale-105 transition-all duration-300" type="submit">
+                        Let's Connect! ✨
+                    </button>
+</div>
+</form>
+</div>
+</section>
+<!-- Success Popup -->
+<div class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300" id="success-popup">
+<div class="bg-white rounded-3xl p-8 max-w-md mx-4 text-center transform scale-75 transition-all duration-300 retro-shadow">
+<h3 class="text-2xl font-bold text-gray-800 mb-2">Success! 🎉</h3>
+<p class="text-gray-600 mb-4">Your form has been submitted. Talk soon!</p>
+<button class="bg-retro-magenta hover:bg-retro-magenta/80 text-white font-bold py-2 px-6 rounded-full transition-colors" onclick="closeSuccessPopup()">
+                Got it!
+            </button>
+</div>
+</div>
+<!-- Floating Contact Button -->
+<div class="fixed bottom-8 right-8 z-50 transition-all duration-300" id="floating-button">
+<button class="bg-retro-magenta hover:bg-retro-magenta/80 text-white font-bold py-3 px-5 rounded-full shadow-2xl transform hover:scale-110 transition-all duration-300 flex items-center space-x-2 slow-pulse hover:animate-none" onclick="scrollToForm()">
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24">
+<path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path>
+</svg>
+<span class="font-medium text-sm">Get Started</span>
+</button>
+</div>
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-12 px-4">
+<div class="max-w-6xl mx-auto">
+<div class="grid md:grid-cols-2 gap-8 text-center md:text-left">
+<div>
+<div class="flex flex-col items-center md:items-start mb-4">
+<div class="retro-heading text-xl font-bold">
+<div class="text-white mb-1" style="text-shadow: 1px 1px 0px #db2777, 2px 2px 0px #0891b2;">
+                                The Clara T Project
+                            </div>
+</div>
+</div>
+<p class="text-gray-300">Where clarity meets practicality.</p>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-4">Get In Touch</h4>
+<p class="text-gray-300 mb-2">📧 TheClaraTProject@gmail.com</p>
+</div>
+</div>
+<div class="border-t border-gray-700 mt-12 pt-8 text-center">
+<p class="text-gray-400">© 2025 The Clara T Studio. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+        // Advanced scroll animations and interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Intersection Observer for text reveals
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all text-reveal elements
+            document.querySelectorAll('.text-reveal').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Mouse tracking for interactive backgrounds
+            document.querySelectorAll('.interactive-bg').forEach(section => {
+                section.addEventListener('mousemove', (e) => {
+                    const rect = section.getBoundingClientRect();
+                    const x = ((e.clientX - rect.left) / rect.width) * 100;
+                    const y = ((e.clientY - rect.top) / rect.height) * 100;
+                    
+                    section.style.setProperty('--mouse-x', x + '%');
+                    section.style.setProperty('--mouse-y', y + '%');
+                });
+            });
+            
+            // Parallax effect for floating elements and floating button visibility
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallaxElements = document.querySelectorAll('.parallax-element');
+                
+                parallaxElements.forEach(element => {
+                    const speed = 0.5;
+                    const yPos = -(scrolled * speed);
+                    element.style.transform = `translateY(${yPos}px)`;
+                });
+                
+                // Hide floating button when near form section
+                const formSection = document.getElementById('interest-form');
+                const floatingButton = document.getElementById('floating-button');
+                
+                if (formSection && floatingButton) {
+                    const formRect = formSection.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    // Hide button when form is 200px from entering viewport
+                    if (formRect.top < windowHeight + 200) {
+                        floatingButton.style.opacity = '0';
+                        floatingButton.style.transform = 'translateY(20px) scale(0.8)';
+                        floatingButton.style.pointerEvents = 'none';
+                    } else {
+                        floatingButton.style.opacity = '1';
+                        floatingButton.style.transform = 'translateY(0) scale(1)';
+                        floatingButton.style.pointerEvents = 'auto';
+                    }
+                }
+            });
+            
+            // Enhanced service card interactions
+            document.querySelectorAll('.service-icon').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05) rotate(2deg) translateY(-10px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1) rotate(0deg) translateY(0px)';
+                });
+            });
+        });
+        
+        // Form validation and submission handler
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form data
+                    const formData = new FormData(this);
+                    const name = formData.get('name');
+                    const email = formData.get('email');
+                    const message = formData.get('message');
+                    
+                    // Validate required name field
+                    if (!name || name.trim() === '') {
+                        alert('Please enter your name.');
+                        return;
+                    }
+                    
+                    // Validate email is required and has valid format
+                    if (!email || email.trim() === '') {
+                        alert('Email address is required.');
+                        const emailField = document.querySelector('input[name="email"]');
+                        emailField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        emailField.focus();
+                        return;
+                    }
+                    
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email.trim())) {
+                        alert('Please enter a valid email address.');
+                        const emailField = document.querySelector('input[name="email"]');
+                        emailField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        emailField.focus();
+                        return;
+                    }
+                    
+                    // Get selected services
+                    const services = [];
+                    const serviceCheckboxes = this.querySelectorAll('input[name="services"]:checked');
+                    serviceCheckboxes.forEach(checkbox => {
+                        services.push(checkbox.value);
+                    });
+                    
+                    // Show loading state
+                    const button = this.querySelector('button[type="submit"]');
+                    const originalText = button.innerHTML;
+                    button.innerHTML = 'Submitting... ✨';
+                    button.style.transform = 'scale(0.95)';
+                    button.disabled = true;
+                    
+                    // Create success particles effect
+                    createSuccessParticles(button);
+                    
+                    // First, submit to Google Sheets with exact field order
+                    const googleFormData = new FormData();
+                    googleFormData.append('Timestamp', new Date().toISOString());
+                    googleFormData.append('Name', name);
+                    googleFormData.append('Email', email);
+                    googleFormData.append('Services', services.join(', '));
+                    googleFormData.append('Message', message || '');
+                    
+                    // Submit to Google Sheets
+                    fetch('https://script.google.com/macros/s/AKfycby_pDhXGDa5TWyTP1HSPcCC-nYTBzduiF8cUwTQAd0Vt7Q-IkBOAxYqyDMrgI3tc0vS/exec', {
+                        method: 'POST',
+                        body: googleFormData
+                    }).then(response => {
+                        console.log('Form submitted to Google Sheets successfully');
+                    }).catch(error => {
+                        console.log('Form submission error:', error);
+                        // Continue with Calendly even if Google Sheets fails
+                    });
+                    
+                    // Build Calendly URL with prefilled data
+                    const calendlyUrl = 'https://calendly.com/theclaratproject/lifeaudit';
+                    const params = new URLSearchParams();
+                    
+                    if (name) params.append('name', name);
+                    if (email) params.append('email', email);
+                    
+                    // Combine services and message for the notes field
+                    let notes = '';
+                    if (services.length > 0) {
+                        notes += 'Interested in: ' + services.join(', ');
+                    }
+                    if (message && message.trim()) {
+                        if (notes) notes += '\n\n';
+                        notes += 'What they want to work on: ' + message.trim();
+                    }
+                    
+                    if (notes) {
+                        params.append('notes', notes);
+                    }
+                    
+                    const finalUrl = calendlyUrl + (params.toString() ? '?' + params.toString() : '');
+                    
+                    // Show success and open Calendly
+                    setTimeout(() => {
+                        button.innerHTML = 'Opening Calendly...';
+                        
+                        setTimeout(() => {
+                            // Show success popup
+                            showSuccessPopup();
+                            
+                            // Reset form
+                            this.reset();
+                            button.innerHTML = originalText;
+                            button.style.transform = 'scale(1)';
+                            button.disabled = false;
+                            
+                            // Open Calendly in new window immediately
+                            window.open(finalUrl, '_blank');
+                        }, 1500);
+                    }, 1000);
+                });
+            }
+        });
+        
+        // Scroll to form function for floating button
+        function scrollToForm() {
+            const formSection = document.getElementById('interest-form');
+            if (formSection) {
+                formSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+        
+        // Success popup functions
+        function showSuccessPopup() {
+            const popup = document.getElementById('success-popup');
+            if (popup) {
+                popup.style.opacity = '1';
+                popup.style.pointerEvents = 'auto';
+                popup.querySelector('div').style.transform = 'scale(1)';
+            }
+        }
+        
+        function closeSuccessPopup() {
+            const popup = document.getElementById('success-popup');
+            if (popup) {
+                popup.style.opacity = '0';
+                popup.style.pointerEvents = 'none';
+                popup.querySelector('div').style.transform = 'scale(0.75)';
+            }
+        }
+        
+        // Success particles animation
+        function createSuccessParticles(element) {
+            const rect = element.getBoundingClientRect();
+            const colors = ['#e11d48', '#ea580c', '#f59e0b', '#65a30d', '#059669', '#0891b2', '#4f46e5', '#8b5cf6', '#ec4899', '#db2777'];
+            
+            for (let i = 0; i < 12; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'fixed';
+                particle.style.left = rect.left + rect.width / 2 + 'px';
+                particle.style.top = rect.top + rect.height / 2 + 'px';
+                particle.style.width = '6px';
+                particle.style.height = '6px';
+                particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.borderRadius = '50%';
+                particle.style.pointerEvents = 'none';
+                particle.style.zIndex = '9999';
+                
+                document.body.appendChild(particle);
+                
+                // Animate particle
+                const angle = (i / 12) * Math.PI * 2;
+                const velocity = 100 + Math.random() * 50;
+                const lifetime = 1000 + Math.random() * 500;
+                
+                particle.animate([
+                    { 
+                        transform: 'translate(0, 0) scale(1)', 
+                        opacity: 1 
+                    },
+                    { 
+                        transform: `translate(${Math.cos(angle) * velocity}px, ${Math.sin(angle) * velocity}px) scale(0)`, 
+                        opacity: 0 
+                    }
+                ], {
+                    duration: lifetime,
+                    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                }).onfinish = () => {
+                    document.body.removeChild(particle);
+                };
+            }
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'974e38a6420ab085',t:'MTc1NjE1Nzc0OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
