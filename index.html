@@ -604,7 +604,9 @@
                 >
                   The Clara T
                 </div>
-                <div class="retro-heading text-2xl md:text-3xl lg:text-4xl font-bold text-retro-magenta mt-2 tracking-wide">
+                <div
+                  class="retro-heading text-2xl md:text-3xl lg:text-4xl font-bold text-retro-magenta mt-2 tracking-wide"
+                >
                   PROJECT
                 </div>
                 <!-- Underline accent -->
@@ -1256,20 +1258,14 @@
       </div>
     </div>
     <!-- Floating Contact Button -->
-    <div
-      class="fixed bottom-8 right-8 z-50 transition-all duration-300"
-      id="floating-button"
-    >
-      <button
-        class="bg-retro-magenta hover:bg-retro-magenta/80 text-white font-bold py-3 px-5 rounded-full shadow-2xl transform hover:scale-110 transition-all duration-300 flex items-center space-x-2 slow-pulse hover:animate-none"
-        onclick="scrollToForm()"
-      >
-        <svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24">
+    <div class="fixed bottom-8 right-8 lg:bottom-12 lg:right-12 z-50 transition-all duration-300" id="floating-button">
+      <button class="bg-retro-magenta hover:bg-retro-magenta/80 text-white font-bold py-3 px-5 lg:py-4 lg:px-8 rounded-full shadow-2xl transform lg:scale-[1.15] hover:scale-[1.25] transition-all duration-300 flex items-center space-x-2 lg:space-x-3 slow-pulse hover:animate-none" onclick="scrollToForm()">
+        <svg class="w-4 h-4 lg:w-6 lg:h-6" fill="currentColor" viewBox="0 0 24 24"> <!-- note: viewBox casing -->
           <path
             d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
           ></path>
         </svg>
-        <span class="font-medium text-sm">Get Started</span>
+        <span class="font-medium text-sm lg:text-lg">Get Started</span>
       </button>
     </div>
     <!-- Footer -->
