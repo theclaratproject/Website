@@ -555,7 +555,7 @@
             ></div>
             <!-- Logo container with enhanced background -->
             <div
-              class="bg-white backdrop-blur-sm rounded-3xl px-12 py-8 lg:px-16 lg:py-12 shadow-2xl border-4 border-white relative overflow-hidden transform hover:rotate-1 transition-all duration-300"
+              class="bg-white backdrop-blur-sm rounded-3xl px-12 py-8 shadow-2xl border-4 border-white relative overflow-hidden transform hover:rotate-1 transition-all duration-300"
               style="
                 box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25),
                   0 0 0 1px rgba(255, 255, 255, 0.8),
@@ -599,15 +599,18 @@
               ></div>
               <!-- Main logo text with enhanced styling -->
               <div class="relative z-10 text-center">
-                <div class="retro-heading text-3xl md:text-5xl font-bold text-gray-800 leading-tight">
-
+                <div
+                  class="retro-heading text-3xl md:text-5xl font-bold text-gray-800 leading-tight"
+                >
                   The Clara T
                 </div>
-                <div class="retro-heading text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-retro-magenta mt-2">
+                <div class="retro-heading text-2xl md:text-3xl lg:text-4xl font-bold text-retro-magenta mt-2 tracking-wide">
                   PROJECT
                 </div>
                 <!-- Underline accent -->
-                <div class="mt-3 mx-auto w-24 lg:w-40 xl:w-48 h-1 lg:h-1.5 bg-gradient-to-r from-retro-teal to-retro-yellow rounded-full"></div>
+                <div
+                  class="mt-2 mx-auto w-24 h-1 bg-gradient-to-r from-retro-teal to-retro-yellow rounded-full"
+                ></div>
               </div>
               <!-- Enhanced gradient overlay -->
               <div
@@ -1253,14 +1256,20 @@
       </div>
     </div>
     <!-- Floating Contact Button -->
-    <div class="fixed bottom-8 right-8 lg:bottom-10 lg:right-10 z-50 transition-all duration-300" id="floating-button">
-      <button class="bg-retro-magenta hover:bg-retro-magenta/80 text-white font-bold py-3 px-5 lg:py-4 lg:px-7 rounded-full shadow-2xl transform hover:scale-110 transition-all duration-300 flex items-center space-x-2 slow-pulse hover:animate-none" onclick="scrollToForm()">
-        <svg class="w-4 h-4 lg:w-5 lg:h-5" fill="currentColor" viewbox="0 0 24 24">
+    <div
+      class="fixed bottom-8 right-8 z-50 transition-all duration-300"
+      id="floating-button"
+    >
+      <button
+        class="bg-retro-magenta hover:bg-retro-magenta/80 text-white font-bold py-3 px-5 rounded-full shadow-2xl transform hover:scale-110 transition-all duration-300 flex items-center space-x-2 slow-pulse hover:animate-none"
+        onclick="scrollToForm()"
+      >
+        <svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24">
           <path
             d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
           ></path>
         </svg>
-        <span class="font-medium text-sm lg:text-base">Get Started</span>
+        <span class="font-medium text-sm">Get Started</span>
       </button>
     </div>
     <!-- Footer -->
@@ -1431,7 +1440,7 @@
 
             // Submit to Google Sheets
             fetch(
-              'https://script.google.com/macros/s/AKfycbxsCISOfgh_KRLRaz7kxEMfvJNuw7HIGJfuaTL3e18u_22xTl3DdjHT-zL-z9GHC9Oa/exec',
+              'https://script.google.com/macros/s/AKfycby_pDhXGDa5TWyTP1HSPcCC-nYTBzduiF8cUwTQAd0Vt7Q-IkBOAxYqyDMrgI3tc0vS/exec',
               {
                 method: 'POST',
                 headers: {
