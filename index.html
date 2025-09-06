@@ -944,6 +944,66 @@
         </div>
       </div>
     </section>
+
+    <!-- HOW I WORK (Tailwind, arrows always right for clean format) -->
+<section id="how-i-work" class="py-16 px-4 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
+  <div class="max-w-5xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-8">
+      <h2 class="retro-heading text-3xl md:text-4xl font-bold text-gray-800">How I Work</h2>
+    </div>
+
+    <!-- Rounded content card -->
+    <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 md:p-7 border border-gray-100 retro-shadow">
+      <p class="text-base md:text-lg text-gray-700 mb-4">
+        Everything starts with a <span class="font-semibold">free 15-minute Life Audit</span>. One quick chat, one clear takeaway. Big or small, it’s a win.
+      </p>
+      <p class="text-base md:text-lg text-gray-700 mb-4">
+        Ongoing sessions are <span class="font-semibold">$1 per minute</span>. Pick the length that fits—five minutes or fifty. No cutoffs, no filler.
+      </p>
+      <p class="text-base md:text-lg text-gray-700 mb-5">
+        All sessions are <span class="font-semibold">100% virtual</span>. The form below connects directly to the calendar, so booking is instant. Pick a time, and we jump right in.
+      </p>
+
+      <!-- Flow: always right arrows for clean format -->
+      <div class="flex flex-wrap items-center justify-center gap-2 md:gap-3 text-xs md:text-sm font-semibold text-gray-800">
+        <!-- Step 1 -->
+        <div class="flex flex-col items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-xl bg-retro-teal/15 text-retro-teal">
+          <span class="text-lg md:text-xl leading-none mb-0.5">✍️</span>
+          <span>Form</span>
+        </div>
+        <!-- Arrow -->
+        <svg class="w-4 h-4 md:w-5 md:h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+        <!-- Step 2 -->
+        <div class="flex flex-col items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-xl bg-retro-magenta/15 text-retro-magenta">
+          <span class="text-lg md:text-xl leading-none mb-0.5">📅</span>
+          <span>Book</span>
+        </div>
+        <svg class="w-4 h-4 md:w-5 md:h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+        <!-- Step 3 -->
+        <div class="flex flex-col items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-xl bg-retro-indigo/15 text-retro-indigo">
+          <span class="text-lg md:text-xl leading-none mb-0.5">💻</span>
+          <span>Connect</span>
+        </div>
+        <svg class="w-4 h-4 md:w-5 md:h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+        <!-- Step 4 -->
+        <div class="flex flex-col items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-xl bg-retro-yellow/15 text-retro-yellow">
+          <span class="text-lg md:text-xl leading-none mb-0.5">✨</span>
+          <span>Wins</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /HOW I WORK -->
+
+
     <!-- Testimonials Section -->
     <section
       class="py-16 px-4 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"
@@ -1258,14 +1318,20 @@
       </div>
     </div>
     <!-- Floating Contact Button -->
-    <div class="fixed bottom-8 right-8 lg:bottom-12 lg:right-12 z-50 transition-all duration-300" id="floating-button">
-      <button class="bg-retro-magenta hover:bg-retro-magenta/80 text-white font-bold py-3 px-5 lg:py-4 lg:px-8 rounded-full shadow-2xl transform lg:scale-[1.15] hover:scale-[1.25] transition-all duration-300 flex items-center space-x-2 lg:space-x-3 slow-pulse hover:animate-none" onclick="scrollToForm()">
-        <svg class="w-4 h-4 lg:w-6 lg:h-6" fill="currentColor" viewBox="0 0 24 24"> <!-- note: viewBox casing -->
+    <div
+      class="fixed bottom-8 right-8 z-50 transition-all duration-300"
+      id="floating-button"
+    >
+      <button
+        class="bg-retro-magenta hover:bg-retro-magenta/80 text-white font-bold py-3 px-5 rounded-full shadow-2xl transform hover:scale-110 transition-all duration-300 flex items-center space-x-2 slow-pulse hover:animate-none"
+        onclick="scrollToForm()"
+      >
+        <svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24">
           <path
             d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
           ></path>
         </svg>
-        <span class="font-medium text-sm lg:text-lg">Get Started</span>
+        <span class="font-medium text-sm">Get Started</span>
       </button>
     </div>
     <!-- Footer -->
@@ -1436,7 +1502,7 @@
 
             // Submit to Google Sheets
             fetch(
-              'https://script.google.com/macros/s/AKfycby_pDhXGDa5TWyTP1HSPcCC-nYTBzduiF8cUwTQAd0Vt7Q-IkBOAxYqyDMrgI3tc0vS/exec',
+              'https://script.google.com/macros/s/AKfycbzCjbDtvE26vyta3kO7e9EslObGCzChzosCmkQNXZuhrSZUsaZ11rdVHXABogR_GI3G/exec',
               {
                 method: 'POST',
                 headers: {
