@@ -1335,27 +1335,38 @@
       </button>
     </div>
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12 px-4 w-full">
-      <div>
-        <p class="text-gray-400 italic text-sm text-center">
-          For informational and coaching purposes only — not legal, financial, or medical advice. 
+<footer class="bg-gray-800 text-white" role="contentinfo">
+  <div class="max-w-6xl mx-auto px-4 py-10 md:py-12">
+    <!-- Top row: contact + disclaimer -->
+    <div class="grid gap-8 md:grid-cols-2 md:items-start">
+      <!-- Contact -->
+      <div class="text-center md:text-left">
+        <h4 class="font-bold text-lg mb-3">Get In Touch</h4>
+        <p class="text-gray-300">
+          <a href="mailto:TheClaraTProject@gmail.com" class="hover:underline">
+            📧 TheClaraTProject@gmail.com
+          </a>
+        </p>
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="text-center md:text-right">
+        <p class="text-gray-400 italic text-sm leading-relaxed">
+          For informational and coaching purposes only — not legal, financial, or medical advice.
           Your choices are your responsibility.
         </p>
       </div>
-      <div class="border-t border-gray-700 mt-12 pt-8 text-center space-y-2">
-        <div class="grid md:grid-cols-2 gap-8 text-center md:text-left">
-          <div>
-            <h4 class="font-bold text-lg mb-4">Get In Touch</h4>
-            <p class="text-gray-300 mb-2">📧 TheClaraTProject@gmail.com</p>
-          </div>
-        </div>
-        <div class="border-t border-gray-700 mt-12 pt-8 text-center space-y-2">
-          <p class="text-gray-400">
-            © 2025 The Clara T Project. All rights reserved.
-          </p>
-        </div>
-      </div>
-    </footer>
+    </div>
+
+    <!-- Bottom row: copyright -->
+    <div class="mt-10 border-t border-gray-700 pt-6 text-center">
+      <p class="text-gray-400 text-sm">
+        © 2025 The Clara T Project. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+
     
     <script>
       // Advanced scroll animations and interactions
